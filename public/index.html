@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/output.css" />
+  </head>
+  <body>
+    <div id="root">
+      <div class="container max-w-screen-2xl mx-auto font-marcel">
+        <header class="py-4 font-roboto uppercase">
+          <nav class="flex flex-row justify-between items-center">
+            <a href="#!" aria-label="Trang chủ" class="basis-1/7">
+              <div class="logo-wrapper flex flex-row items-center gap-1">
+                <div class="icon-img w-10">
+                  <img
+                    src="./assets/icon/Logo-icon-black.png"
+                    alt="Logo Crystal"
+                  />
+                </div>
+                <span
+                  class="logo-text text-xl font-bold font-marcel capitalize"
+                >
+                  Crystal.
+                </span>
+              </div>
+            </a>
+            <div
+              class="flex flex-row gap-4 justify-between items-center basis-6/7"
+            >
+              <ul class="flex py-4 gap-4">
+                <li class="mp-top-menu-item">
+                  <a href="!#" class="px-8">HOME</a>
+                </li>
+                <li class="mp-top-menu-item">
+                  <a href="!#" class="px-8"
+                    >SHOP <i class="fa-solid fa-chevron-down"></i
+                  ></a>
+                </li>
+                <li class="mp-top-menu-item">
+                  <a href="!#" class="px-8">COLLECTION</a>
+                </li>
+                <li class="mp-top-menu-item">
+                  <a href="!#" class="px-8">CONTACT</a>
+                </li>
+                <li class="mp-top-menu-item">
+                  <a href="!#" class="px-8">ABOUT</a>
+                </li>
+              </ul>
+              <div class="p-4 border-[1px] rounded-xl border-[#D9D9D9]">
+                <input
+                  type="search"
+                  class="border-0 outline-0 min-w-60"
+                  id="searchInput"
+                  placeholder="Search"
+                  aria-label="Search"
+                  aria-describedby="search-addon"
+                />
+                <span class="input-group-text border-0" id="search-addon">
+                  <i class="fas fa-search"></i>
+                </span>
+              </div>
+              <div
+                class="text-2xl flex flex-row justify-between items-center gap-6"
+              >
+                <a href=""><i class="fa-regular fa-heart"></i></a>
+                <a href="">
+                  <i class="fa-solid fa-bag-shopping relative">
+                    <div
+                      class="absolute px-2 -top-4 -right-5 bg-gray-400 text-white rounded-full text-sm font-extralight border-[1px] border-white flex justify-center items-center font-roboto"
+                    >
+                      99
+                    </div></i
+                  ></a
+                >
+              </div>
+            </div>
+          </nav>
+        </header>
+
+        <main>
+          <section class="slider"></section>
+          <!-- End Slider -->
+          <section class="hot-sale"></section>
+          <!-- End Hot Sale -->
+          <section class="category"></section>
+          <!-- End Category -->
+          <section class="product"></section>
+          <!-- End Product -->
+        </main>
+        <footer></footer>
+      </div>
+    </div>
+  </body>
+</html>
