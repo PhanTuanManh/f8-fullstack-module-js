@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="icon" href="./assets/icon/Logo-icon-black.png" sizes="16x16" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -12,50 +13,53 @@
   </head>
   <body>
     <div id="root">
-      <div class="container max-w-screen-2xl mx-auto font-marcel">
-        <header class="py-4 font-roboto uppercase">
+      <div class="container 3xl:px-0 px-5 mx-auto font-poppins relative">
+        <header class="xl:py-5 py-8 py- uppercase">
           <nav class="flex flex-row justify-between items-center">
-            <a href="#!" aria-label="Trang chủ" class="basis-1/7">
-              <div class="logo-wrapper flex flex-row items-center gap-1">
-                <div class="icon-img w-10">
-                  <img
-                    src="./assets/icon/Logo-icon-black.png"
-                    alt="Logo Crystal"
-                  />
-                </div>
-                <span
-                  class="logo-text text-xl font-bold font-marcel capitalize"
-                >
-                  Crystal.
-                </span>
+            <!-- bar menu -->
+            <i class="basis-2/6 fa-solid fa-bars-staggered xl:hidden"></i>
+            <div class="mobile-menu"></div>
+            <!-- menu -->
+            <ul
+              class="hidden xl:flex text-sm xl:flex-row xl:justify-start xl:gap-6 py-4 basis-2/6"
+            >
+              <li class="mp-top-menu-item">
+                <a href="!#" class="mp-top-menu-item-a-active">HOME</a>
+              </li>
+              <li class="mp-top-menu-item">
+                <a href="!#" class="mp-top-menu-item-a-active"
+                  >SHOP <i class="fa-solid fa-chevron-down"></i
+                ></a>
+              </li>
+              <li class="mp-top-menu-item">
+                <a href="!#" class="mp-top-menu-item-a-active">COLLECTION</a>
+              </li>
+              <li class="mp-top-menu-item">
+                <a href="!#" class="mp-top-menu-item-a-active">CONTACT</a>
+              </li>
+              <li class="mp-top-menu-item">
+                <a href="!#" class="mp-top-menu-item-a-active">ABOUT</a>
+              </li>
+            </ul>
+            <!-- Logo -->
+            <a href="#!" aria-label="Trang chủ" class="basis-2/6">
+              <div
+                class="logo-wrapper flex flex-row items-center justify-center"
+              >
+                <img src="./assets/icon/logo.svg" alt="" class= />
               </div>
             </a>
+            <!-- Search & Cart & User -->
             <div
-              class="flex flex-row gap-4 justify-between items-center basis-6/7"
+              class="flex flex-row gap-4 justify-end items-center basis-2/6 pr-2.5"
             >
-              <ul class="flex py-4 gap-4">
-                <li class="mp-top-menu-item">
-                  <a href="!#" class="px-8">HOME</a>
-                </li>
-                <li class="mp-top-menu-item">
-                  <a href="!#" class="px-8"
-                    >SHOP <i class="fa-solid fa-chevron-down"></i
-                  ></a>
-                </li>
-                <li class="mp-top-menu-item">
-                  <a href="!#" class="px-8">COLLECTION</a>
-                </li>
-                <li class="mp-top-menu-item">
-                  <a href="!#" class="px-8">CONTACT</a>
-                </li>
-                <li class="mp-top-menu-item">
-                  <a href="!#" class="px-8">ABOUT</a>
-                </li>
-              </ul>
-              <div class="p-4 border-[1px] rounded-xl border-[#D9D9D9]">
+              <!-- Search -->
+              <div
+                class="flex flex-row p-4 border-[1px] rounded-xl border-[#D9D9D9] hidden xl:block"
+              >
                 <input
                   type="search"
-                  class="border-0 outline-0 min-w-60"
+                  class="border-0 outline-0 w-52"
                   id="searchInput"
                   placeholder="Search"
                   aria-label="Search"
@@ -65,11 +69,19 @@
                   <i class="fas fa-search"></i>
                 </span>
               </div>
+
+              <!-- Cart & User & Whist List -->
               <div
-                class="text-2xl flex flex-row justify-between items-center gap-6"
+                class="text-xl flex flex-row justify-between items-center gap-6"
               >
-                <a href=""><i class="fa-regular fa-heart"></i></a>
-                <a href="">
+                <!-- User -->
+                <a href="!#"
+                  ><i class="fa-regular fa-user hidden xl:block"></i
+                ></a>
+                <!-- Whist List -->
+                <a href="!#"><i class="fa-regular fa-heart"></i></a>
+                <!-- Cart -->
+                <a href="!#">
                   <i class="fa-solid fa-bag-shopping relative">
                     <div
                       class="absolute px-2 -top-4 -right-5 bg-gray-400 text-white rounded-full text-sm font-extralight border-[1px] border-white flex justify-center items-center font-roboto"
@@ -96,5 +108,6 @@
         <footer></footer>
       </div>
     </div>
+    <script src=""></script>
   </body>
 </html>

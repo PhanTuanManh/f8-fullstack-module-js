@@ -5,5 +5,9 @@
 @tailwind utilities;
 
 .mp-top-menu-item {
-  @apply font-roboto uppercase cursor-pointer hover:text-[#2B662D] relative after:absolute after:top-7 after:left-0 after:bg-black after:h-0.5 after:w-0 after:transition-all after:duration-500 hover:after:w-full;
+  @apply uppercase cursor-pointer font-semibold hover:text-[#2B662D];
+}
+
+.mp-top-menu-item-a-active {
+  @apply relative after:absolute after:top-7 after:left-0 after:bg-black after:h-0.5 after:w-0 after:transition-all after:duration-500 hover:after:w-full;
 }
