@@ -19,8 +19,14 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        roboto: "Roboto, sans-serif",
-        marcel: "Marcellus, serif",
+        poppins: "Poppins, sans-serif",
+      },
+
+      colors: {
+        primary: "#23232C",
+      },
+      cursor: {
+        x: "url(/public/assets/icon/x.svg), auto",
       },
     },
   },

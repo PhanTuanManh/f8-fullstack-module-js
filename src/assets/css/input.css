@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Marcellus&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -9,5 +9,29 @@
 }
 
 .mp-top-menu-item-a-active {
-  @apply relative after:absolute after:top-7 after:left-0 after:bg-black after:h-0.5 after:w-0 after:transition-all after:duration-500 hover:after:w-full;
+  @apply relative after:absolute after:top-7 font-semibold after:left-0 after:bg-black after:h-0.5 after:w-0 after:transition-all after:duration-500 hover:after:w-full;
+}
+
+.mp-mobile-menu-item-a {
+  @apply flex flex-row w-full justify-between items-center;
+}
+
+.mp-mobile-menu-item {
+  @apply cursor-pointer w-full py-3.5 relative after:absolute after:content-[''] after:top-0 after:-left-5 after:h-full after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-2;
+}
+
+.mp-mobile-menu-invisible {
+  @apply invisible opacity-0 -translate-x-full;
+}
+
+.mp-mobile-menu-visible {
+  @apply visible opacity-100 translate-x-0;
+}
+
+.mp-overlay-visible {
+  @apply visible opacity-100;
+}
+
+.mp-overlay-invisible {
+  @apply invisible opacity-0;
 }

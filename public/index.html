@@ -13,12 +13,99 @@
   </head>
   <body>
     <div id="root">
-      <div class="container 3xl:px-0 px-5 mx-auto font-poppins relative">
-        <header class="xl:py-5 py-8 py- uppercase">
+      <div class="container 3xl:px-0 mx-auto px-5 font-poppins min-h-dvh">
+        <header class="xl:py-5 py-8 text-primary uppercase">
           <nav class="flex flex-row justify-between items-center">
             <!-- bar menu -->
-            <i class="basis-2/6 fa-solid fa-bars-staggered xl:hidden"></i>
-            <div class="mobile-menu"></div>
+            <div class="basis-2/6 text-xl xl:hidden">
+              <i class="cursor-pointer bar-icon fa-solid fa-bars-staggered"></i>
+            </div>
+            <!-- mobile menu -->
+            <div
+              class="z-50 justify-between mobile-menu mp-mobile-menu-invisible absolute top-0 left-0 bottom-0 min-w-[400px] md:min-w-[330px] bg-white ml-0 px-5 pt-8 pb-5 text-primary overscroll-y-auto transition-all duration-500"
+            >
+              <nav class="w-full flex flex-col h-full">
+                <!-- search mobile  -->
+                <div
+                  class="flex flex-row w-full py-4 focus-within:border-b focus-within:border-primary transition-all duration-500 mb-[30px]"
+                >
+                  <input
+                    type="search"
+                    class="border-0 outline-0 w-full"
+                    id="searchInput"
+                    placeholder="Search"
+                    aria-label="Search"
+                    aria-describedby="search-addon"
+                  />
+                  <span
+                    class="input-group-text border-0 text-lg"
+                    id="search-addon"
+                  >
+                    <i class="fas fa-search"></i>
+                  </span>
+                </div>
+
+                <!-- menu mobile -->
+                <ul class="font-semibold">
+                  <li class="mp-mobile-menu-item">
+                    <a href="" class="mp-mobile-menu-item-a">
+                      <span>HOME</span>
+                      <i class="fa-solid fa-caret-right opacity-50"></i>
+                    </a>
+                  </li>
+                  <li class="mp-mobile-menu-item">
+                    <a href="" class="mp-mobile-menu-item-a">
+                      <span> SHOP </span>
+                      <i class="fa-solid fa-caret-right opacity-50"></i
+                    ></a>
+                  </li>
+                  <li class="mp-mobile-menu-item">
+                    <a href="" class="mp-mobile-menu-item-a">
+                      <span> FEATURES </span>
+                      <i class="fa-solid fa-caret-right opacity-50"></i
+                    ></a>
+                  </li>
+                  <li class="mp-mobile-menu-item">
+                    <a href="" class="mp-mobile-menu-item-a">
+                      <span> PAGES </span>
+                      <i class="fa-solid fa-caret-right opacity-50"></i
+                    ></a>
+                  </li>
+                  <li class="mp-mobile-menu-item">
+                    <a href="" class="mp-mobile-menu-item-a">
+                      <span> BLOG </span>
+                      <i class="fa-solid fa-caret-right opacity-50"></i
+                    ></a>
+                  </li>
+                </ul>
+
+                <!-- Whist List & User -->
+                <ul class="font-semibold items-end mt-auto">
+                  <li class="mp-mobile-menu-item">
+                    <a href="" class="flex flex-row items-center">
+                      <div class="flex flex-row items-center">
+                        <i class="fa-regular fa-heart text-xl mr-2"></i>
+                        <span> WHIST LIST </span>
+                      </div>
+                      <span
+                        class="ml-auto text-sm bg-primary text-white px-2 rounded-full"
+                        >0</span
+                      >
+                    </a>
+                  </li>
+                  <li class="mp-mobile-menu-item">
+                    <a href="">
+                      <i class="fa-regular fa-user text-xl mr-2"></i>
+                      <span> USER</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <!-- overlay -->
+            <div
+              class="overlay fixed top-0 bottom-0 right-0 left-0 bg-[rgba(0,0,0,0.5)] z-0 transition-all duration-500 mp-overlay-invisible cursor-pointer"
+            ></div>
             <!-- menu -->
             <ul
               class="hidden xl:flex text-sm xl:flex-row xl:justify-start xl:gap-6 py-4 basis-2/6"
@@ -28,17 +115,17 @@
               </li>
               <li class="mp-top-menu-item">
                 <a href="!#" class="mp-top-menu-item-a-active"
-                  >SHOP <i class="fa-solid fa-chevron-down"></i
+                  >SHOP <i class="fa-solid fa-caret-right"></i
                 ></a>
               </li>
               <li class="mp-top-menu-item">
-                <a href="!#" class="mp-top-menu-item-a-active">COLLECTION</a>
+                <a href="!#" class="mp-top-menu-item-a-active">FEATURES</a>
               </li>
               <li class="mp-top-menu-item">
-                <a href="!#" class="mp-top-menu-item-a-active">CONTACT</a>
+                <a href="!#" class="mp-top-menu-item-a-active">PAGES</a>
               </li>
               <li class="mp-top-menu-item">
-                <a href="!#" class="mp-top-menu-item-a-active">ABOUT</a>
+                <a href="!#" class="mp-top-menu-item-a-active">BLOG</a>
               </li>
             </ul>
             <!-- Logo -->
@@ -59,7 +146,7 @@
               >
                 <input
                   type="search"
-                  class="border-0 outline-0 w-52"
+                  class="border-0 outline-0 2xl:w-52 w-40"
                   id="searchInput"
                   placeholder="Search"
                   aria-label="Search"
@@ -84,7 +171,7 @@
                 <a href="!#">
                   <i class="fa-solid fa-bag-shopping relative">
                     <div
-                      class="absolute px-2 -top-4 -right-5 bg-gray-400 text-white rounded-full text-sm font-extralight border-[1px] border-white flex justify-center items-center font-roboto"
+                      class="absolute px-2 -top-4 -right-5 bg-gray-400 text-white rounded-full text-xs font-extralight border-[1px] border-white flex justify-center items-center font-roboto"
                     >
                       99
                     </div></i
@@ -108,6 +195,6 @@
         <footer></footer>
       </div>
     </div>
-    <script src=""></script>
+    <script type="module" src="./assets/js/main.js"></script>
   </body>
 </html>
