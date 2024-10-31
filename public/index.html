@@ -15,11 +15,11 @@
     <div id="root" class="scroll-smooth focus:scroll-auto">
       <div class="container 3xl:px-0 mx-auto px-5 font-poppins min-h-dvh">
         <div
-          class="overlay fixed top-0 bottom-0 right-0 left-0 bg-[rgba(0,0,0,0.5)] z-[999] mp-transition-5 mp-overlay-invisible cursor-test"
+          class="overlay fixed top-0 bottom-0 right-0 left-0 bg-[rgba(0,0,0,0.5)] z-[999] mp-transition-5 mp-invisible cursor-test"
         ></div>
         <!-- end overlay -->
         <div
-          class="z-[9999] justify-between mobile-menu mp-mobile-menu-invisible absolute top-0 left-0 bottom-0 min-w-[400px] md:min-w-[330px] bg-white ml-0 px-5 pt-8 pb-5 text-primary overscroll-y-auto mp-transition-5"
+          class="z-[9999] justify-between mobile-menu mp-mobile-menu-invisible fixed top-0 left-0 bottom-0 min-w-[400px] md:min-w-[330px] bg-white ml-0 px-5 pt-8 pb-5 text-primary overscroll-y-auto mp-transition-5"
         >
           <nav class="w-full flex flex-col h-full">
             <div
@@ -193,131 +193,23 @@
             data-carousel="static"
           >
             <!-- Slide List -->
-            <div class="slide-lists">
-              <!-- Slide 1 -->
-              <div
-                class="absolute top-0 left-0 right-0 h-full overflow-hidden"
-                data-carousel-item="active"
-              >
-                <img
-                  src="./assets/images/slide1.jpg"
-                  alt=""
-                  class="absolute w-full h-full object-cover"
-                />
-                <div
-                  class="side-text absolute w-full h-full object-cover flex flex-col justify-center items-center"
-                >
-                  <h2
-                    class="text-[82px] font-light translate-y-6 cursor-default"
-                  >
-                    Linen Collection
-                  </h2>
-                  <span
-                    class="text-[15px] pb-0.5 cursor-pointer translate-y-16 relative after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-1/2 after:h-[2px] after:bg-primary hover:after:w-full after:transition-all after:duration-500"
-                    >Shop Now</span
-                  >
-                </div>
-              </div>
-
-              <!-- Slide 2 -->
-              <div
-                class="absolute top-0 left-0 right-0 h-full overflow-hidden"
-                data-carousel-item="active"
-              >
-                <img
-                  src="./assets/images/slide2.jpg"
-                  alt=""
-                  class="absolute w-full h-full object-cover"
-                />
-                <div
-                  class="side-text absolute w-full h-full object-cover flex flex-col justify-center items-center"
-                >
-                  <h2
-                    class="text-[82px] font-light translate-y-6 cursor-default"
-                  >
-                    Linen Collection
-                  </h2>
-                  <span
-                    class="text-[15px] pb-0.5 cursor-pointer translate-y-16 relative after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-1/2 after:h-[2px] after:bg-primary hover:after:w-full after:transition-all after:duration-500"
-                    >Shop Now</span
-                  >
-                </div>
-              </div>
-
-              <!-- Slide 3 -->
-              <div
-                class="absolute top-0 left-0 right-0 h-full overflow-hidden"
-                data-carousel-item="active"
-              >
-                <img
-                  src="./assets/images/slide3.jpg"
-                  alt=""
-                  class="absolute w-full h-full object-cover"
-                />
-                <div
-                  class="side-text absolute w-full h-full object-cover flex flex-col justify-center items-center"
-                >
-                  <h2
-                    class="text-[82px] font-light translate-y-6 cursor-default"
-                  >
-                    Linen Collection
-                  </h2>
-                  <span
-                    class="text-[15px] pb-0.5 cursor-pointer translate-y-16 relative after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-1/2 after:h-[2px] after:bg-primary hover:after:w-full after:transition-all after:duration-500"
-                    >Shop Now</span
-                  >
-                </div>
-              </div>
-            </div>
+            <div
+              id="slide-lists"
+              class="slide-lists flex flex-row absolute top-0 left-0 right-0 h-full"
+            ></div>
 
             <!-- Slider dots -->
             <div
-              class="absolute z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse bottom-5 left-1/2"
-            >
-              <button
-                type="button"
-                class="w-5 h-0.5 bg-primary"
-                aria-current="true"
-                aria-label="Slide 1"
-                data-carousel-slide-to="0"
-              ></button>
-              <button
-                type="button"
-                class="w-5 h-0.5 bg-primary"
-                aria-current="false"
-                aria-label="Slide 2"
-                data-carousel-slide-to="1"
-              ></button>
-              <button
-                type="button"
-                class="w-5 h-0.5 bg-primary"
-                aria-current="false"
-                aria-label="Slide 3"
-                data-carousel-slide-to="2"
-              ></button>
-              <button
-                type="button"
-                class="w-5 h-0.5 bg-primary"
-                aria-current="false"
-                aria-label="Slide 4"
-                data-carousel-slide-to="3"
-              ></button>
-              <button
-                type="button"
-                class="w-5 h-0.5 bg-primary"
-                aria-current="false"
-                aria-label="Slide 5"
-                data-carousel-slide-to="4"
-              ></button>
-            </div>
+              class="dots-container absolute z-30 flex justify-center items-center -translate-x-1/2 space-x-3 rtl:space-x-reverse bottom-5 left-1/2"
+            ></div>
             <!-- Slider controls -->
             <button
               type="button"
-              class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+              class="prev absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
               data-carousel-prev
             >
               <span
-                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-transparent group-hover:bg-gray-200/70 group-focus:ring-4 group-focus:ring-white group-focus:outline-none mp-transition-3"
+                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-transparent group-hover:bg-gray-200/70 border-0 outline-0 mp-transition-3"
               >
                 <i class="fa-solid fa-chevron-left"></i>
                 <span class="sr-only">Previous</span>
@@ -325,11 +217,11 @@
             </button>
             <button
               type="button"
-              class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+              class="next absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
               data-carousel-next
             >
               <span
-                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-transparent group-hover:bg-gray-200/70 group-focus:ring-4 group-focus:ring-white group-focus:outline-none"
+                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-transparent group-hover:bg-gray-200/70 border-0 outline-0 mp-transition-3"
               >
                 <i class="fa-solid fa-chevron-right"></i>
                 <span class="sr-only">Next</span>

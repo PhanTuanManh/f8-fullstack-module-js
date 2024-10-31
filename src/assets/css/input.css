@@ -4,8 +4,14 @@
 @tailwind components;
 @tailwind utilities;
 
+.mp-transition-10 {
+  @apply transition-all duration-1000;
+}
 .mp-transition-5 {
   @apply transition-all duration-500;
+}
+.mp-transition-7 {
+  @apply transition-all duration-700;
 }
 
 .mp-transition-3 {
@@ -36,10 +42,14 @@
   @apply visible opacity-100 translate-x-0;
 }
 
-.mp-overlay-visible {
+.mp-visible {
   @apply visible opacity-100;
 }
 
-.mp-overlay-invisible {
+.mp-invisible {
   @apply invisible opacity-0;
+}
+
+.mp-dot-active {
+  @apply bg-primary h-2 w-2 rounded-full;
 }
