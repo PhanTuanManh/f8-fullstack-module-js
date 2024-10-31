@@ -12,103 +12,109 @@
     <link rel="stylesheet" href="./assets/css/output.css" />
   </head>
   <body>
-    <div id="root">
+    <div id="root" class="scroll-smooth focus:scroll-auto">
       <div class="container 3xl:px-0 mx-auto px-5 font-poppins min-h-dvh">
-        <header class="xl:py-5 py-8 text-primary uppercase">
+        <div
+          class="overlay fixed top-0 bottom-0 right-0 left-0 bg-[rgba(0,0,0,0.5)] z-[999] mp-transition-5 mp-overlay-invisible cursor-test"
+        ></div>
+        <!-- end overlay -->
+        <div
+          class="z-[9999] justify-between mobile-menu mp-mobile-menu-invisible absolute top-0 left-0 bottom-0 min-w-[400px] md:min-w-[330px] bg-white ml-0 px-5 pt-8 pb-5 text-primary overscroll-y-auto mp-transition-5"
+        >
+          <nav class="w-full flex flex-col h-full">
+            <div
+              class="flex flex-row w-full py-4 focus-within:border-b focus-within:border-primary mp-transition-5 mb-[30px]"
+            >
+              <input
+                type="search"
+                class="border-0 outline-0 w-full"
+                id="searchInput"
+                placeholder="Search"
+                aria-label="Search"
+                aria-describedby="search-addon"
+              />
+              <span class="input-group-text border-0 text-lg" id="search-addon">
+                <i class="fas fa-search"></i>
+              </span>
+            </div>
+            <!-- end search mobile -->
+
+            <ul class="font-semibold">
+              <li class="mp-mobile-menu-item">
+                <a href="" class="mp-mobile-menu-item-a">
+                  <span>HOME</span>
+                  <i class="fa-solid fa-caret-right opacity-50"></i>
+                </a>
+              </li>
+              <li class="mp-mobile-menu-item">
+                <a href="" class="mp-mobile-menu-item-a">
+                  <span> SHOP </span>
+                  <i class="fa-solid fa-caret-right opacity-50"></i
+                ></a>
+              </li>
+              <li class="mp-mobile-menu-item">
+                <a href="" class="mp-mobile-menu-item-a">
+                  <span> FEATURES </span>
+                  <i class="fa-solid fa-caret-right opacity-50"></i
+                ></a>
+              </li>
+              <li class="mp-mobile-menu-item">
+                <a href="" class="mp-mobile-menu-item-a">
+                  <span> PAGES </span>
+                  <i class="fa-solid fa-caret-right opacity-50"></i
+                ></a>
+              </li>
+              <li class="mp-mobile-menu-item">
+                <a href="" class="mp-mobile-menu-item-a">
+                  <span> BLOG </span>
+                  <i class="fa-solid fa-caret-right opacity-50"></i
+                ></a>
+              </li>
+            </ul>
+            <!-- end item mobile -->
+
+            <ul class="font-semibold items-end mt-auto">
+              <li class="mp-mobile-menu-item">
+                <a href="" class="flex flex-row items-center">
+                  <div class="flex flex-row items-center">
+                    <i class="fa-regular fa-heart text-xl mr-2"></i>
+                    <span> WHIST LIST </span>
+                  </div>
+                  <span
+                    class="ml-auto text-sm bg-primary text-white px-2 rounded-full"
+                    >0</span
+                  >
+                </a>
+              </li>
+              <li class="mp-mobile-menu-item">
+                <a href="">
+                  <i class="fa-regular fa-user text-xl mr-2"></i>
+                  <span> USER</span>
+                </a>
+              </li>
+            </ul>
+            <!-- end whist list & user -->
+          </nav>
+        </div>
+        <!-- end mobile menu -->
+        <div
+          class="to-top p-2 flex justify-center items-center text-xl w-5 fixed bottom-12 right-5 border-b-0 border-transparent hover:border-primary hover:border-b-[6px] transition-ease-in-out mp-transition-3 cursor-pointer"
+        >
+          <i class="fa-solid fa-arrow-up-long"></i>
+        </div>
+        <header
+          id="header"
+          class="header z-[50] fixed top-0 left-0 right-0 md:px-10 px-5 xl:py-5 py-8 bg-white/0 text-primary uppercase transition-all trasition-ease-in-out duration-500"
+        >
           <nav class="flex flex-row justify-between items-center">
             <!-- bar menu -->
             <div class="basis-2/6 text-xl xl:hidden">
               <i class="cursor-pointer bar-icon fa-solid fa-bars-staggered"></i>
             </div>
-            <!-- mobile menu -->
-            <div
-              class="z-50 justify-between mobile-menu mp-mobile-menu-invisible absolute top-0 left-0 bottom-0 min-w-[400px] md:min-w-[330px] bg-white ml-0 px-5 pt-8 pb-5 text-primary overscroll-y-auto transition-all duration-500"
-            >
-              <nav class="w-full flex flex-col h-full">
-                <!-- search mobile  -->
-                <div
-                  class="flex flex-row w-full py-4 focus-within:border-b focus-within:border-primary transition-all duration-500 mb-[30px]"
-                >
-                  <input
-                    type="search"
-                    class="border-0 outline-0 w-full"
-                    id="searchInput"
-                    placeholder="Search"
-                    aria-label="Search"
-                    aria-describedby="search-addon"
-                  />
-                  <span
-                    class="input-group-text border-0 text-lg"
-                    id="search-addon"
-                  >
-                    <i class="fas fa-search"></i>
-                  </span>
-                </div>
 
-                <!-- menu mobile -->
-                <ul class="font-semibold">
-                  <li class="mp-mobile-menu-item">
-                    <a href="" class="mp-mobile-menu-item-a">
-                      <span>HOME</span>
-                      <i class="fa-solid fa-caret-right opacity-50"></i>
-                    </a>
-                  </li>
-                  <li class="mp-mobile-menu-item">
-                    <a href="" class="mp-mobile-menu-item-a">
-                      <span> SHOP </span>
-                      <i class="fa-solid fa-caret-right opacity-50"></i
-                    ></a>
-                  </li>
-                  <li class="mp-mobile-menu-item">
-                    <a href="" class="mp-mobile-menu-item-a">
-                      <span> FEATURES </span>
-                      <i class="fa-solid fa-caret-right opacity-50"></i
-                    ></a>
-                  </li>
-                  <li class="mp-mobile-menu-item">
-                    <a href="" class="mp-mobile-menu-item-a">
-                      <span> PAGES </span>
-                      <i class="fa-solid fa-caret-right opacity-50"></i
-                    ></a>
-                  </li>
-                  <li class="mp-mobile-menu-item">
-                    <a href="" class="mp-mobile-menu-item-a">
-                      <span> BLOG </span>
-                      <i class="fa-solid fa-caret-right opacity-50"></i
-                    ></a>
-                  </li>
-                </ul>
-
-                <!-- Whist List & User -->
-                <ul class="font-semibold items-end mt-auto">
-                  <li class="mp-mobile-menu-item">
-                    <a href="" class="flex flex-row items-center">
-                      <div class="flex flex-row items-center">
-                        <i class="fa-regular fa-heart text-xl mr-2"></i>
-                        <span> WHIST LIST </span>
-                      </div>
-                      <span
-                        class="ml-auto text-sm bg-primary text-white px-2 rounded-full"
-                        >0</span
-                      >
-                    </a>
-                  </li>
-                  <li class="mp-mobile-menu-item">
-                    <a href="">
-                      <i class="fa-regular fa-user text-xl mr-2"></i>
-                      <span> USER</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-            <!-- overlay -->
-            <div
-              class="overlay fixed top-0 bottom-0 right-0 left-0 bg-[rgba(0,0,0,0.5)] z-0 transition-all duration-500 mp-overlay-invisible cursor-pointer"
-            ></div>
             <!-- menu -->
             <ul
-              class="hidden xl:flex text-sm xl:flex-row xl:justify-start xl:gap-6 py-4 basis-2/6"
+              class="hidden xl:flex text-sm xl:flex-row xl:justify-start xl:gap-6 2xl:gap-8 py-4 basis-2/6"
             >
               <li class="mp-top-menu-item">
                 <a href="!#" class="mp-top-menu-item-a-active">HOME</a>
@@ -141,12 +147,10 @@
               class="flex flex-row gap-4 justify-end items-center basis-2/6 pr-2.5"
             >
               <!-- Search -->
-              <div
-                class="flex flex-row p-4 border-[1px] rounded-xl border-[#D9D9D9] hidden xl:block"
-              >
+              <div class="flex flex-row p-4 hidden xl:block">
                 <input
                   type="search"
-                  class="border-0 outline-0 2xl:w-52 w-40"
+                  class="border-0 outline-0 2xl:w-52 pb-1 w-40 bg-transparent focus:border-b border-b-0 border-transparent focus:border-primary mp-transition-5"
                   id="searchInput"
                   placeholder="Search"
                   aria-label="Search"
@@ -181,18 +185,168 @@
             </div>
           </nav>
         </header>
-
+        <!-- End Header -->
         <main>
-          <section class="slider"></section>
+          <section
+            id="indicators-carousel"
+            class="slider w-full min-h-[100vh] z-[20]"
+            data-carousel="static"
+          >
+            <!-- Slide List -->
+            <div class="slide-lists">
+              <!-- Slide 1 -->
+              <div
+                class="absolute top-0 left-0 right-0 h-full overflow-hidden"
+                data-carousel-item="active"
+              >
+                <img
+                  src="./assets/images/slide1.jpg"
+                  alt=""
+                  class="absolute w-full h-full object-cover"
+                />
+                <div
+                  class="side-text absolute w-full h-full object-cover flex flex-col justify-center items-center"
+                >
+                  <h2
+                    class="text-[82px] font-light translate-y-6 cursor-default"
+                  >
+                    Linen Collection
+                  </h2>
+                  <span
+                    class="text-[15px] pb-0.5 cursor-pointer translate-y-16 relative after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-1/2 after:h-[2px] after:bg-primary hover:after:w-full after:transition-all after:duration-500"
+                    >Shop Now</span
+                  >
+                </div>
+              </div>
+
+              <!-- Slide 2 -->
+              <div
+                class="absolute top-0 left-0 right-0 h-full overflow-hidden"
+                data-carousel-item="active"
+              >
+                <img
+                  src="./assets/images/slide2.jpg"
+                  alt=""
+                  class="absolute w-full h-full object-cover"
+                />
+                <div
+                  class="side-text absolute w-full h-full object-cover flex flex-col justify-center items-center"
+                >
+                  <h2
+                    class="text-[82px] font-light translate-y-6 cursor-default"
+                  >
+                    Linen Collection
+                  </h2>
+                  <span
+                    class="text-[15px] pb-0.5 cursor-pointer translate-y-16 relative after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-1/2 after:h-[2px] after:bg-primary hover:after:w-full after:transition-all after:duration-500"
+                    >Shop Now</span
+                  >
+                </div>
+              </div>
+
+              <!-- Slide 3 -->
+              <div
+                class="absolute top-0 left-0 right-0 h-full overflow-hidden"
+                data-carousel-item="active"
+              >
+                <img
+                  src="./assets/images/slide3.jpg"
+                  alt=""
+                  class="absolute w-full h-full object-cover"
+                />
+                <div
+                  class="side-text absolute w-full h-full object-cover flex flex-col justify-center items-center"
+                >
+                  <h2
+                    class="text-[82px] font-light translate-y-6 cursor-default"
+                  >
+                    Linen Collection
+                  </h2>
+                  <span
+                    class="text-[15px] pb-0.5 cursor-pointer translate-y-16 relative after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-1/2 after:h-[2px] after:bg-primary hover:after:w-full after:transition-all after:duration-500"
+                    >Shop Now</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Slider dots -->
+            <div
+              class="absolute z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse bottom-5 left-1/2"
+            >
+              <button
+                type="button"
+                class="w-5 h-0.5 bg-primary"
+                aria-current="true"
+                aria-label="Slide 1"
+                data-carousel-slide-to="0"
+              ></button>
+              <button
+                type="button"
+                class="w-5 h-0.5 bg-primary"
+                aria-current="false"
+                aria-label="Slide 2"
+                data-carousel-slide-to="1"
+              ></button>
+              <button
+                type="button"
+                class="w-5 h-0.5 bg-primary"
+                aria-current="false"
+                aria-label="Slide 3"
+                data-carousel-slide-to="2"
+              ></button>
+              <button
+                type="button"
+                class="w-5 h-0.5 bg-primary"
+                aria-current="false"
+                aria-label="Slide 4"
+                data-carousel-slide-to="3"
+              ></button>
+              <button
+                type="button"
+                class="w-5 h-0.5 bg-primary"
+                aria-current="false"
+                aria-label="Slide 5"
+                data-carousel-slide-to="4"
+              ></button>
+            </div>
+            <!-- Slider controls -->
+            <button
+              type="button"
+              class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+              data-carousel-prev
+            >
+              <span
+                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-transparent group-hover:bg-gray-200/70 group-focus:ring-4 group-focus:ring-white group-focus:outline-none mp-transition-3"
+              >
+                <i class="fa-solid fa-chevron-left"></i>
+                <span class="sr-only">Previous</span>
+              </span>
+            </button>
+            <button
+              type="button"
+              class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+              data-carousel-next
+            >
+              <span
+                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-transparent group-hover:bg-gray-200/70 group-focus:ring-4 group-focus:ring-white group-focus:outline-none"
+              >
+                <i class="fa-solid fa-chevron-right"></i>
+                <span class="sr-only">Next</span>
+              </span>
+            </button>
+          </section>
           <!-- End Slider -->
-          <section class="hot-sale"></section>
+          <section class="hot-sale h-dvh w-full"></section>
           <!-- End Hot Sale -->
           <section class="category"></section>
           <!-- End Category -->
           <section class="product"></section>
           <!-- End Product -->
         </main>
+        <!-- End Main -->
         <footer></footer>
+        <!-- End Footer -->
       </div>
     </div>
     <script type="module" src="./assets/js/main.js"></script>

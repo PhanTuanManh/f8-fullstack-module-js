@@ -4,6 +4,14 @@
 @tailwind components;
 @tailwind utilities;
 
+.mp-transition-5 {
+  @apply transition-all duration-500;
+}
+
+.mp-transition-3 {
+  @apply transition-all duration-300;
+}
+
 .mp-top-menu-item {
   @apply uppercase cursor-pointer font-semibold hover:text-[#2B662D];
 }

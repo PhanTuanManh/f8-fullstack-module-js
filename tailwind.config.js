@@ -26,7 +26,7 @@ module.exports = {
         primary: "#23232C",
       },
       cursor: {
-        x: "url(/public/assets/icon/x.svg), auto",
+        test: "url(https://icons.iconarchive.com/icons/github/octicons/48/x-24-icon.png), pointer",
       },
     },
   },
