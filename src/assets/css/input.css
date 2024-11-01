@@ -18,6 +18,10 @@
   @apply transition-all duration-300;
 }
 
+.mp-padding-section {
+  @apply 3xl:px-0 px-5 mx-auto;
+}
+
 .mp-top-menu-item {
   @apply uppercase cursor-pointer font-semibold hover:text-[#2B662D];
 }
@@ -52,4 +56,8 @@
 
 .mp-dot-active {
   @apply bg-primary h-2 w-2 rounded-full;
+}
+
+.mp-hot-sale-text {
+  @apply py-2 font-semibold relative after:absolute after:bottom-0 after:-translate-x-1/2 after:left-1/2 after:bg-black after:h-0.5 after:w-0 after:transition-all after:duration-500 hover:after:w-full;
 }

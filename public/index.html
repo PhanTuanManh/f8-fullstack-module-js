@@ -13,7 +13,7 @@
   </head>
   <body>
     <div id="root" class="scroll-smooth focus:scroll-auto">
-      <div class="container 3xl:px-0 mx-auto px-5 font-poppins min-h-dvh">
+      <div class="mx-auto font-poppins min-h-dvh">
         <div
           class="overlay fixed top-0 bottom-0 right-0 left-0 bg-[rgba(0,0,0,0.5)] z-[999] mp-transition-5 mp-invisible cursor-test"
         ></div>
@@ -175,7 +175,7 @@
                 <a href="!#">
                   <i class="fa-solid fa-bag-shopping relative">
                     <div
-                      class="absolute px-2 -top-4 -right-5 bg-gray-400 text-white rounded-full text-xs font-extralight border-[1px] border-white flex justify-center items-center font-roboto"
+                      class="absolute px-2 -top-4 -right-5 bg-gray-400 text-white rounded-full text-xs font-extralight border border-white flex justify-center items-center font-roboto"
                     >
                       99
                     </div></i
@@ -232,10 +232,8 @@
           </section>
           <!-- End Slider -->
           <!-- New -->
-          <section class="new w-full cursor-pointer">
-            <div
-              class="new-lists absolute flex flex-col md:flex-row left-0 right-0"
-            >
+          <section class="new cursor-pointer flex flex-col h-auto">
+            <div class="new-lists flex flex-col md:flex-row left-0 right-0">
               <div class="new relative overflow-hidden">
                 <div class="new-img w-full">
                   <img
@@ -246,7 +244,9 @@
                   <div
                     class="new-text absolute inset-0 flex flex-col justify-center items-center text-center gap-4 hover:scale-125 mp-transition-5"
                   >
-                    <h4 class="xl:text-[28px] lg:text-[20px] md:text-[16px] text-[18px] font-light max-w-[50%]">
+                    <h4
+                      class="xl:text-[28px] lg:text-[20px] md:text-[16px] text-[18px] font-light max-w-[50%]"
+                    >
                       SS 2024 Collection
                     </h4>
                     <span
@@ -266,7 +266,9 @@
                   <div
                     class="new-text absolute inset-0 flex flex-col justify-center items-center text-center gap-4 hover:scale-125 mp-transition-5"
                   >
-                    <h4 class="xl:text-[28px] lg:text-[20px] md:text-[16px] text-[18px] font-light max-w-[50%]">
+                    <h4
+                      class="xl:text-[28px] lg:text-[20px] md:text-[16px] text-[18px] font-light max-w-[50%]"
+                    >
                       50% Off Mid-Season Sale
                     </h4>
                     <span
@@ -286,7 +288,9 @@
                   <div
                     class="new-text absolute inset-0 flex flex-col justify-center items-center text-center gap-4 hover:scale-125 mp-transition-5"
                   >
-                    <h4 class="xl:text-[28px] lg:text-[20px] md:text-[16px] text-[18px] font-light max-w-[50%]">
+                    <h4
+                      class="xl:text-[28px] lg:text-[20px] md:text-[16px] text-[18px] font-light max-w-[50%]"
+                    >
                       New Summer Collection
                     </h4>
                     <span
@@ -296,20 +300,28 @@
                   </div>
                 </div>
               </div>
-              </div>
-             
-                <div class="new-img w-full">
-                  <img
-                    src=""
-                    alt=""
-                    class="w-full object-cover"
-                  />
-                </div>
-              </div>
             </div>
           </section>
           <!-- End New -->
-          <section class="hot-sale h-dvh w-full"></section>
+          <section
+            class="container mp-padding-section hot-sale w-full mt-[100px] min-h-dvh"
+          >
+            <nav class="mb-[30px]">
+              <ul class="flex flex-row justify-center gap-[50px] items-center">
+                <li class="mp-hot-sale-text">
+                  <a href="">Best Sellers</a>
+                </li>
+                <li class="mp-hot-sale-text"><a href="">New Products</a></li>
+                <li class="mp-hot-sale-text"><a href="">Sale Products</a></li>
+              </ul>
+            </nav>
+            <div class="hot-sale-product grid grid-cols-4 gap-4">
+              <div class="hot-sale-product-item"></div>
+              <div class="hot-sale-product-item"></div>
+              <div class="hot-sale-product-item"></div>
+              <div class="hot-sale-product-item"></div>
+            </div>
+          </section>
           <!-- End Hot Sale -->
           <section class="category"></section>
           <!-- End Category -->
