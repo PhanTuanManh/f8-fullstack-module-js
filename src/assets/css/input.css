@@ -59,5 +59,9 @@
 }
 
 .mp-hot-sale-text {
-  @apply py-2 font-semibold relative after:absolute after:bottom-0 after:-translate-x-1/2 after:left-1/2 after:bg-black after:h-0.5 after:w-0 after:transition-all after:duration-500 hover:after:w-full;
+  @apply py-2 font-semibold relative hover:text-primary after:absolute after:bottom-0 after:-translate-x-1/2 after:left-1/2 after:bg-black after:h-0.5 after:w-0 after:transition-all after:duration-500 hover:after:w-full;
+}
+
+.mp-hot-sale-text-active {
+  @apply text-primary;
 }
