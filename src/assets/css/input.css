@@ -22,6 +22,10 @@
   @apply 3xl:px-0 px-5 mx-auto;
 }
 
+.mp-button-container {
+  @apply flex flex-col items-center justify-center mt-[30px];
+}
+
 .mp-top-menu-item {
   @apply uppercase cursor-pointer font-semibold hover:text-[#2B662D];
 }
@@ -64,4 +68,12 @@
 
 .mp-hot-sale-text-active {
   @apply text-primary;
+}
+
+.mp-time-box {
+  @apply flex flex-col justify-center items-center;
+}
+
+.mp-time {
+  @apply font-normal text-[50px];
 }
