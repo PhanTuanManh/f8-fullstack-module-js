@@ -628,6 +628,10 @@ video {
   border-width: 0;
 }
 
+.invisible{
+  visibility: hidden;
+}
+
 .static{
   position: static;
 }
@@ -696,6 +700,10 @@ video {
   top: 0px;
 }
 
+.top-\[60px\]{
+  top: 60px;
+}
+
 .z-30{
   z-index: 30;
 }
@@ -719,6 +727,11 @@ video {
 .mx-auto{
   margin-left: auto;
   margin-right: auto;
+}
+
+.my-\[20px\]{
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .mb-\[30px\]{
@@ -841,6 +854,14 @@ video {
 
 .w-5{
   width: 1.25rem;
+}
+
+.w-\[400px\]{
+  width: 400px;
+}
+
+.w-\[700px\]{
+  width: 700px;
 }
 
 .w-full{
@@ -978,6 +999,15 @@ video {
   gap: 60px;
 }
 
+.gap-x-\[80px\]{
+  -moz-column-gap: 80px;
+       column-gap: 80px;
+}
+
+.gap-y-\[20px\]{
+  row-gap: 20px;
+}
+
 .space-x-3 > :not([hidden]) ~ :not([hidden]){
   --tw-space-x-reverse: 0;
   margin-right: calc(0.75rem * var(--tw-space-x-reverse));
@@ -992,6 +1022,10 @@ video {
 
 .overflow-hidden{
   overflow: hidden;
+}
+
+.overflow-y-auto{
+  overflow-y: auto;
 }
 
 .overscroll-y-auto{
@@ -1128,6 +1162,11 @@ video {
   padding-right: 100px;
 }
 
+.px-\[40px\]{
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
 .py-12{
   padding-top: 3rem;
   padding-bottom: 3rem;
@@ -1151,6 +1190,11 @@ video {
 .py-8{
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.py-\[20px\]{
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .pb-0\.5{
@@ -1187,6 +1231,10 @@ video {
 
 .text-\[12px\]{
   font-size: 12px;
+}
+
+.text-\[13px\]{
+  font-size: 13px;
 }
 
 .text-\[14px\]{
@@ -1245,6 +1293,10 @@ video {
   text-transform: uppercase;
 }
 
+.capitalize{
+  text-transform: capitalize;
+}
+
 .text-\[\#FF6962\]{
   --tw-text-opacity: 1;
   color: rgb(255 105 98 / var(--tw-text-opacity));
@@ -1288,8 +1340,17 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.shadow-gray-500\/40{
+  --tw-shadow-color: rgb(107 114 128 / 0.4);
+  --tw-shadow: var(--tw-shadow-colored);
+}
+
 .outline-0{
   outline-width: 0px;
+}
+
+.filter{
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .transition{
@@ -1357,14 +1418,10 @@ video {
 }
 
 .mp-top-menu-item{
+  position: relative;
   cursor: pointer;
   font-weight: 600;
   text-transform: uppercase;
-}
-
-.mp-top-menu-item:hover{
-  --tw-text-opacity: 1;
-  color: rgb(43 102 45 / var(--tw-text-opacity));
 }
 
 .mp-top-menu-item-a-active{
@@ -1384,6 +1441,11 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   content: var(--tw-content);
   transition-duration: 500ms;
+}
+
+.mp-top-menu-item-a-active:hover{
+  --tw-text-opacity: 1;
+  color: rgb(43 102 45 / var(--tw-text-opacity));
 }
 
 .mp-top-menu-item-a-active:hover::after{
@@ -1509,6 +1571,20 @@ video {
   font-weight: 400;
 }
 
+.mp-mobile-sub-menu{
+  padding-top: 15px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+}
+
+.mp-mobile-sub-menu-item{
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 14px;
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
+}
+
 .after\:absolute::after{
   content: var(--tw-content);
   position: absolute;
@@ -1538,6 +1614,18 @@ video {
   content: var(--tw-content);
   --tw-translate-x: -50%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.after\:bg-primary::after{
+  content: var(--tw-content);
+  --tw-bg-opacity: 1;
+  background-color: rgb(35 35 44 / var(--tw-bg-opacity));
+}
+
+.after\:bg-white::after{
+  content: var(--tw-content);
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .after\:transition-all::after{
@@ -1590,6 +1678,10 @@ video {
   background-color: transparent;
 }
 
+.hover\:bg-white\/100:hover{
+  background-color: rgb(255 255 255 / 1);
+}
+
 .hover\:text-gray-500\/75:hover{
   color: rgb(107 114 128 / 0.75);
 }
@@ -1637,8 +1729,16 @@ video {
   background-color: rgb(255 255 255 / 0.9);
 }
 
+.group:hover .group-hover\:visible{
+  visibility: visible;
+}
+
 .group:hover .group-hover\:bg-gray-200\/70{
   background-color: rgb(229 231 235 / 0.7);
+}
+
+.group:hover .group-hover\:opacity-100{
+  opacity: 1;
 }
 
 @media (min-width: 576px){

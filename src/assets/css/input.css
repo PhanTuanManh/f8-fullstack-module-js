@@ -27,11 +27,11 @@
 }
 
 .mp-top-menu-item {
-  @apply uppercase cursor-pointer font-semibold hover:text-[#2B662D];
+  @apply uppercase cursor-pointer font-semibold relative;
 }
 
 .mp-top-menu-item-a-active {
-  @apply relative after:absolute after:top-7 font-semibold after:left-0 after:bg-black after:h-0.5 after:w-0 after:transition-all after:duration-500 hover:after:w-full;
+  @apply relative after:absolute after:top-7 font-semibold after:left-0 after:bg-black after:h-0.5 after:w-0 after:transition-all after:duration-500 hover:after:w-full hover:text-[#2B662D];
 }
 
 .mp-mobile-menu-item-a {
@@ -76,4 +76,12 @@
 
 .mp-time {
   @apply font-normal text-[50px];
+}
+
+.mp-mobile-sub-menu {
+  @apply pt-[15px] pb-[5px] pl-[20px];
+}
+
+.mp-mobile-sub-menu-item {
+  @apply py-2 text-gray-500 text-[14px];
 }
