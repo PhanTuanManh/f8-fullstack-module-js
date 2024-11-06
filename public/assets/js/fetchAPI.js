@@ -70,3 +70,19 @@ export const getAllCategories = async () => {
     console.error("Error fetching categories:", error);
   }
 };
+
+export const getRandomProducts = async () => {
+  try {
+    const response = await fetch(`${API_URL}`);
+    const products = await response.json();
+
+    // Shuffle the array and get the first 10 items
+    const randomProducts = products
+      .sort(() => Math.random() - 0.5) // Shuffle array
+      .slice(0, 10); // Get first 10 products after shuffling
+
+    return randomProducts;
+  } catch (error) {
+    console.error("Error fetching random products:", error);
+  }
+};

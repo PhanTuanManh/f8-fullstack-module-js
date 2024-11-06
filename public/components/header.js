@@ -18,7 +18,7 @@ export default async function Header() {
               </li>
               <li class="mp-top-menu-item group">
                 <a href="../detail.html" class="mp-top-menu-item-a-active"
-                  >Category <i class="fa-solid fa-caret-right"></i
+                  >Category <i class="fa-solid fa-caret-right mp-transition-5 group-hover:rotate-90" ></i
                 ></a>
                 <div
                   class="sub-nav absolute flex top-[60px] left-0 bg-white flex-row justify-between w-[700px] shadow-lg shadow-gray-500/40 opacity-0 invisible group-hover:opacity-100 group-hover:visible mp-transition-3"
@@ -68,7 +68,7 @@ export default async function Header() {
               <div
                 class="logo-wrapper flex flex-row items-center justify-center"
               >
-                <img loading="lazy" src="./public/assets/icon/logo.svg" alt=""
+                <img loading="lazy" src="../assets/icon/logo.svg" alt=""
                 class= />
               </div>
             </a>
