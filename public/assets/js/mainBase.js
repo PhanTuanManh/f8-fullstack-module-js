@@ -344,6 +344,11 @@ getRandomProducts().then((products) => {
       ${hot}
       ${discount}
     `;
+
+    productCard.addEventListener("click", () => {
+      window.location.href = `detail.html?id=${product.id}`;
+    });
+
     productList.appendChild(productCard);
   });
 });
