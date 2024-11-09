@@ -2,10 +2,12 @@
   "scripts": {
     "build:css": "tailwindcss -i ./src/assets/css/input.css -o ./public/assets/css/output.css --watch",
     "start:dev": "live-server public",
-    "start:server": "json-server --watch db.json --port 5000"
+    "start:server": "json-server --watch db.json --port 5000",
+    "dev": "npm-run-all --parallel build:css start:dev start:server"
   },
   "devDependencies": {
     "concurrently": "^9.1.0",
+    "npm-run-all": "^4.1.5",
     "tailwindcss": "^3.4.14"
   },
   "name": "f8-fullstack-project-js",
