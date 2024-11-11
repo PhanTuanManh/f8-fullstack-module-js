@@ -1,10 +1,9 @@
-// loadProducts.js
 let allProducts = []; // Store all products once fetched
 let currentPage = 1; // Track current page
 const pageSize = 10; // Number of products per page
-let currentFilter = "all-products"; // Default filter
+let currentFilter = "all-products";
+let currentSortOrder = "asc"; // Default sort order
 
-// Fetch products once and store them
 async function fetchAllProducts() {
   if (allProducts.length === 0) {
     const response = await fetch("http://localhost:5000/products");
@@ -13,17 +12,17 @@ async function fetchAllProducts() {
   return allProducts;
 }
 
-// Function to load and display products based on the filter type
 export async function loadProducts(
   filterType = "all-products",
   page = 1,
-  isLoadMore = false
+  isLoadMore = false,
+  sortOrder = "asc"
 ) {
   const products = await fetchAllProducts();
   currentPage = page;
   currentFilter = filterType;
+  currentSortOrder = sortOrder;
 
-  // Apply the filter type
   let filteredProducts;
   switch (filterType) {
     case "best-sellers":
@@ -38,15 +37,17 @@ export async function loadProducts(
       );
       break;
     default:
-      filteredProducts = products; // No filter for all products
+      filteredProducts = products;
   }
 
-  // Update product count
+  filteredProducts = filteredProducts.sort((a, b) =>
+    sortOrder === "asc" ? a.price - b.price : b.price - a.price
+  );
+
   document.querySelector(
     ".product-count"
   ).textContent = `${filteredProducts.length} products`;
 
-  // Paginate filtered products
   const startIndex = (currentPage - 1) * pageSize;
   const paginatedProducts = filteredProducts.slice(
     startIndex,
@@ -56,7 +57,6 @@ export async function loadProducts(
   renderProductList(paginatedProducts, isLoadMore);
 }
 
-// Render product list to the DOM
 function renderProductList(products, isLoadMore) {
   const productList = document.querySelector(".products");
   if (!productList) return;
@@ -108,12 +108,11 @@ function renderProductList(products, isLoadMore) {
   });
 }
 
-// Initialize load more functionality
 export function initLoadMoreButton() {
   const loadMoreButton = document.querySelector(".load-more a");
   loadMoreButton.addEventListener("click", (e) => {
     e.preventDefault();
     currentPage += 1;
-    loadProducts(currentFilter, currentPage, true); // Load next page with isLoadMore = true and retain the filter
+    loadProducts(currentFilter, currentPage, true, currentSortOrder);
   });
 }
