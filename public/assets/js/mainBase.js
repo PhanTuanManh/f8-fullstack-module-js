@@ -112,6 +112,9 @@ function renderProductList(products) {
       ? `<span class="tag absolute top-0 left-0 text-white bg-[#FF6962] font-semibold px-3.5 text-[14px]">Hot</span>`
       : "";
 
+    const newTag = product.new
+      ? `<span class="tag absolute top-0 left-0 text-white bg-[#6cff62] font-semibold px-3.5 text-[14px]">New</span>`
+      : "";
     productCard.innerHTML = `
       <img loading="lazy" src="${productImage}" alt="${product.title}" class="w-full object-cover hover:scale-105 mp-transition-5" />
       <div class="item-text flex flex-col justify-center text-center mt-[20px] gap-2 mb-[30px]">
@@ -119,6 +122,7 @@ function renderProductList(products) {
         <span>$${product.price}</span>
       </div>
       ${hot}
+      ${newTag}
       ${discount}
     `;
 
