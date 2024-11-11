@@ -105,11 +105,11 @@ function renderProductList(products) {
       product.images?.[0] ?? "./assets/images/default-product.jpg";
     const discount =
       product.discountPercentage > 0
-        ? `<span class="discount absolute top-0 right-0 text-[#FF6962] font-semibold px-3.5 text-[12px]">-${product.discountPercentage}%</span>`
+        ? `<span class="discount absolute top-5 right-0 text-[#FF6962] font-semibold px-3.5 text-[12px]">-${product.discountPercentage}%</span>`
         : "";
 
     const hot = product.hot
-      ? `<span class="tag absolute top-0 left-0 text-white bg-[#FF6962] font-semibold px-3.5 text-[14px]">Hot</span>`
+      ? `<span class="tag absolute top-5 left-0 text-white bg-[#FF6962] font-semibold px-3.5 text-[14px]">Hot</span>`
       : "";
 
     const newTag = product.new

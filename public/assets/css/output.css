@@ -1138,6 +1138,10 @@ video {
   background-color: rgb(255 255 255 / 0);
 }
 
+.bg-\[\#6cff6295\]{
+  background-color: #6cff6295;
+}
+
 .object-cover{
   -o-object-fit: cover;
      object-fit: cover;
