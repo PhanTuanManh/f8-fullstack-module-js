@@ -70,3 +70,28 @@ export const getAllCategories = async () => {
     console.error("Error fetching categories:", error);
   }
 };
+
+export const get10BestSellersProducts = async () => {
+  const response = await fetch(`${API_URL}`); // Replace with actual endpoint
+  const products = await response.json();
+
+  // Filter and return the first 10 products with "new: true"
+  return products.filter((product) => product.sell >= 99).slice(0, 10);
+};
+
+export const get10NewProducts = async () => {
+  const response = await fetch(`${API_URL}`); // Replace with actual endpoint
+  const products = await response.json();
+
+  // Filter and return the first 10 products with "new: true"
+  return products.filter((product) => product.new === true).slice(0, 10);
+};
+
+export const get10DiscountedProducts = async () => {
+  const products = await getAllProducts(); // Assuming getAllProducts fetches all products
+
+  // Filter products with discountPercentage > 10 and return the first 10
+  return products
+    .filter((product) => product.discountPercentage > 10)
+    .slice(0, 10);
+};

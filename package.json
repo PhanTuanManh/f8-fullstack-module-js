@@ -3,7 +3,7 @@
     "build:css": "tailwindcss -i ./src/assets/css/input.css -o ./public/assets/css/output.css --watch",
     "start:dev": "live-server public",
     "start:server": "json-server --watch db.json --port 5000",
-    "dev": "npm-run-all --parallel build:css start:dev start:server"
+    "start": "concurrently \"npm run build:css\" \"npm run start:dev\" \"npm run start:server\""
   },
   "devDependencies": {
     "concurrently": "^9.1.0",

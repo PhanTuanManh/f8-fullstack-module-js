@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sober | Category</title>
+    <link rel="icon" href="./assets/icon/Logo-icon-black.png" sizes="16x16" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/output.css" />
+  </head>
+  <body>
+    <div id="root" class="scroll-smooth focus:scroll-auto">
+      <div class="mx-auto font-poppins min-h-dvh">
+        <div id="mobileMenu"></div>
+
+        <div
+          class="to-top p-2 flex justify-center items-center text-xl w-5 fixed bottom-12 right-5 border-b-0 border-transparent hover:border-primary hover:border-b-[6px] transition-ease-in-out mp-transition-3 cursor-pointer"
+        >
+          <i class="fa-solid fa-arrow-up-long"></i>
+        </div>
+        <div id="header"></div>
+
+        <!-- End Header -->
+        <!-- Main -->
+        <main>
+          <section
+            class="pageheader mp-fullpage-section-pad lg:h-[600px] md:h-[470px] h-[350px] mx-auto pt-[160px] md:pt-[220px] lg:pt-[275px] pb-[60px] md:pb-[120px] lg:pb-[175px] flex flex-col justify-between items-center relative overflow-hidden"
+          >
+            <img
+              src="./assets/images/slide1.jpg"
+              alt=""
+              class="absolute inset-0 h-full w-full object-cover z-[-1]"
+            />
+            <h3 class="text-7xl letter tracking-widest">Shop</h3>
+            <div class="path flex flex-row text-xs font-semibold text-gray-500">
+              <a href="index.html" class="hover:text-primary mp-transition-3"
+                >Home</a
+              >
+
+              <span class="mx-2">/</span>
+              <a
+                id="breadcrumb-category"
+                href="category.html"
+                class="text-primary mp-transition-3 capitalize"
+              >
+                Shop
+              </a>
+            </div>
+            <div class="nav flex flex-row gap-6">
+              <i
+                class="fa-solid fa-arrow-left-long cursor-pointer"
+                id="back-button"
+              ></i>
+              <i
+                class="fa-solid fa-arrow-right-long cursor-pointer"
+                id="next-button"
+              ></i>
+            </div>
+          </section>
+          <section class="shop mp-fullpage-section-pad">
+            <div
+              class="shop-tool-bar flex flex-row justify-between py-[30px] border-b border-gray-200"
+            >
+              <nav>
+                <ul
+                  class="flex flex-row justify-center gap-[50px] items-center text-gray-500"
+                >
+                  <li class="mp-hot-sale-text mp-hot-sale-text-active">
+                    <a href="" id="all-products-link">All Products</a>
+                  </li>
+                  <li class="mp-hot-sale-text">
+                    <a href="" id="best-sellers-link">Best Sellers</a>
+                  </li>
+                  <li class="mp-hot-sale-text">
+                    <a href="" id="new-products-link">New Products</a>
+                  </li>
+                  <li class="mp-hot-sale-text">
+                    <a href="" id="sale-link">Sale Products</a>
+                  </li>
+                </ul>
+              </nav>
+              <div
+                class="tools flex flex-row justify-center gap-[50px] items-center text-gray-500"
+              >
+                <span class="product-count text-xs">61 products</span>
+                <div
+                  class="sort-by flex flex-row justify-center gap-[50px] items-center text-gray-500 text-xs"
+                >
+                  <div class="low-to-hight hover:text-primary cursor-pointer">
+                    <i class="fa-solid fa-arrow-up mr-2"></i>
+                    <span>Low to hight</span>
+                  </div>
+                  <div class="hight-to-low hover:text-primary cursor-pointer">
+                    <i class="fa-solid fa-arrow-down mr-2"></i>
+                    <span>Hight to low</span>
+                  </div>
+                </div>
+                <div class="filter">
+                  <i class="fa-solid fa-filter"></i>
+                  Filter
+                </div>
+              </div>
+            </div>
+            <div
+              class="products grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 gap-[30px] mt-[50px]"
+            ></div>
+            <div class="load-more mp-button-container">
+              <a
+                href="#"
+                class="bg-primary font-semibold text-sm text-white px-4 py-5 min-w-[200px] text-center cursor-pointer hover:bg-[#FF6962] transition-ease-in-out mp-transition-3"
+                >Load More</a
+              >
+            </div>
+          </section>
+        </main>
+        <!-- End Main -->
+        <!--
+  Heads up! 👋
+
+  This component comes with some `rtl` classes. Please remove them if they are not needed in your project.
+
+  Plugins:
+    - @tailwindcss/forms
+-->
+
+        <div id="footer"></div>
+
+        <!-- End Footer -->
+      </div>
+    </div>
+    <script type="module" src="./assets/js/category.js"></script>
+    <script type="module" src="./assets/js/categoryBreadcrumb.js"></script>
+  </body>
+</html>

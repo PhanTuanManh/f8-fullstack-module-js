@@ -22,8 +22,12 @@
   @apply 3xl:px-0 px-5 mx-auto;
 }
 
+.mp-fullpage-section-pad {
+  @apply md:px-10 px-5;
+}
+
 .mp-button-container {
-  @apply flex flex-col items-center justify-center mt-[30px];
+  @apply flex flex-col items-center justify-center lg:mt-[30px] mt-0;
 }
 
 .mp-top-menu-item {
@@ -75,7 +79,7 @@
 }
 
 .mp-time {
-  @apply font-normal text-[50px];
+  @apply font-normal lg:text-[50px] lg:text-[40px] text-[30px];
 }
 
 .mp-mobile-sub-menu {

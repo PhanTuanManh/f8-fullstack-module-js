@@ -1,5 +1,5 @@
 export default async function Footer() {
-  return `                 <footer class="bg-white container mx-auto">
+  return `                 <footer class="bg-white mp-fullpage-section-pad mx-auto">
           <div class="mx-auto py-12">
             <div
               class="flex flex-col items-center gap-4 rounded-lg bg-primary p-6 shadow-lg sm:flex-row sm:justify-between"
