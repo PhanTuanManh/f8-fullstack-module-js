@@ -1,48 +1,77 @@
-// mainBase.js
-// Author: https://github.com/PhanTuanManh/
-
+// category.js
 import Header from "../../components/header.js";
 import Footer from "../../components/footer.js";
 import MobileMenu from "../../components/mobileMenu.js";
 import { initSlider } from "./slider.js";
 import { initMenuToggle } from "./menuToggle.js";
 import { loadProducts, initLoadMoreButton } from "./loadProducts.js";
-import {
-  get10BestSellersProducts,
-  get10NewProducts,
-  get10DiscountedProducts,
-  getAllProducts,
-} from "./fetchAPI.js";
 
-// Load header and footer content, then initialize required components
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    // Load header and footer content
     const [headerContent, footerContent, mobileNav] = await Promise.all([
       Header(),
       Footer(),
       MobileMenu(),
     ]);
 
-    // Insert header and footer into the DOM
     document.querySelector("#header").innerHTML = headerContent;
     document.querySelector("#footer").innerHTML = footerContent;
     document.querySelector("#mobileMenu").innerHTML = mobileNav;
 
-    // Initialize menu toggle after header loads
     initMenuToggle();
-
     initEventListeners();
-    loadProducts();
 
-    loadProducts(1); // Load the first page initially
-    initLoadMoreButton(); // Set up the "Load More" button functionality
+    // Initial load of all products
+    loadProducts("all-products", 1);
+    initLoadMoreButton();
+
+    setupCategoryFilters();
+    setupSortOptions();
   } catch (error) {
     console.error("Error loading components:", error);
   }
 });
 
-// Define additional event listeners for scroll and button interactions
+function setupCategoryFilters() {
+  document
+    .getElementById("all-products-link")
+    ?.addEventListener("click", (e) => {
+      e.preventDefault();
+      loadProducts("all-products", 1);
+    });
+
+  document
+    .getElementById("best-sellers-link")
+    ?.addEventListener("click", (e) => {
+      e.preventDefault();
+      loadProducts("best-sellers", 1);
+    });
+
+  document
+    .getElementById("new-products-link")
+    ?.addEventListener("click", (e) => {
+      e.preventDefault();
+      loadProducts("new-products", 1);
+    });
+
+  document.getElementById("sale-link")?.addEventListener("click", (e) => {
+    e.preventDefault();
+    loadProducts("sale-products", 1);
+  });
+}
+
+function setupSortOptions() {
+  // Low to high sorting
+  document.querySelector(".low-to-hight")?.addEventListener("click", () => {
+    loadProducts(currentFilter, 1, false, "low-to-high");
+  });
+
+  // High to low sorting
+  document.querySelector(".hight-to-low")?.addEventListener("click", () => {
+    loadProducts(currentFilter, 1, false, "high-to-low");
+  });
+}
+
 function initEventListeners() {
   let lastScrollY = window.scrollY;
   const header = document.querySelector(".header");
@@ -50,7 +79,6 @@ function initEventListeners() {
 
   function handleScroll() {
     const currentScrollY = window.scrollY;
-
     if (header) {
       if (currentScrollY === 0) {
         header.classList.remove("bg-white");
@@ -64,7 +92,6 @@ function initEventListeners() {
         header.classList.add("translate-y-[-100%]");
       }
     }
-
     lastScrollY = currentScrollY;
   }
 
@@ -82,9 +109,3 @@ function initEventListeners() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 }
-
-// Load random products for the product list
-
-// Render products to the specified product list container
-
-// Set up event listeners for product category links

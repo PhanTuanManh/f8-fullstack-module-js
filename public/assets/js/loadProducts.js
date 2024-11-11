@@ -1,24 +1,70 @@
 // loadProducts.js
+let allProducts = []; // Store all products once fetched
+let currentPage = 1; // Track current page
+const pageSize = 10; // Number of products per page
+let currentFilter = "all-products"; // Default filter
 
-import { getAllProducts } from "./fetchAPI.js"; // Adjust path as needed
-
-let currentPage = 1;
-const productsPerPage = 10;
-
-export function loadProducts(page, containerSelector = ".products") {
-  getAllProducts()
-    .then((products) => {
-      const paginatedProducts = products.slice(0, page * productsPerPage);
-      renderProductList(paginatedProducts, containerSelector);
-    })
-    .catch((error) => console.error("Error loading products:", error));
+// Fetch products once and store them
+async function fetchAllProducts() {
+  if (allProducts.length === 0) {
+    const response = await fetch("http://localhost:5000/products");
+    allProducts = await response.json();
+  }
+  return allProducts;
 }
 
-function renderProductList(products, containerSelector) {
-  const productList = document.querySelector(containerSelector);
+// Function to load and display products based on the filter type
+export async function loadProducts(
+  filterType = "all-products",
+  page = 1,
+  isLoadMore = false
+) {
+  const products = await fetchAllProducts();
+  currentPage = page;
+  currentFilter = filterType;
+
+  // Apply the filter type
+  let filteredProducts;
+  switch (filterType) {
+    case "best-sellers":
+      filteredProducts = products.filter((product) => product.sell > 99);
+      break;
+    case "new-products":
+      filteredProducts = products.filter((product) => product.new === true);
+      break;
+    case "sale-products":
+      filteredProducts = products.filter(
+        (product) => product.discountPercentage >= 10
+      );
+      break;
+    default:
+      filteredProducts = products; // No filter for all products
+  }
+
+  // Update product count
+  document.querySelector(
+    ".product-count"
+  ).textContent = `${filteredProducts.length} products`;
+
+  // Paginate filtered products
+  const startIndex = (currentPage - 1) * pageSize;
+  const paginatedProducts = filteredProducts.slice(
+    startIndex,
+    startIndex + pageSize
+  );
+
+  renderProductList(paginatedProducts, isLoadMore);
+}
+
+// Render product list to the DOM
+function renderProductList(products, isLoadMore) {
+  const productList = document.querySelector(".products");
   if (!productList) return;
 
-  productList.innerHTML = ""; // Clear existing products
+  if (!isLoadMore) {
+    productList.innerHTML = ""; // Clear existing products only on initial load
+  }
+
   products.forEach((product) => {
     const productCard = document.createElement("div");
     productCard.classList.add(
@@ -39,6 +85,10 @@ function renderProductList(products, containerSelector) {
       ? `<span class="tag absolute top-5 left-0 text-white bg-[#FF6962] font-semibold px-3.5 text-[14px]">Hot</span>`
       : "";
 
+    const newTag = product.new
+      ? `<span class="tag absolute top-0 left-0 text-white bg-[#6cff62] font-semibold px-3.5 text-[14px]">New</span>`
+      : "";
+
     productCard.innerHTML = `
       <img loading="lazy" src="${productImage}" alt="${product.title}" class="w-full object-cover hover:scale-105 mp-transition-5" />
       <div class="item-text flex flex-col justify-center text-center mt-[20px] gap-2 mb-[30px]">
@@ -46,6 +96,7 @@ function renderProductList(products, containerSelector) {
         <span>$${product.price}</span>
       </div>
       ${hot}
+      ${newTag}
       ${discount}
     `;
 
@@ -57,12 +108,12 @@ function renderProductList(products, containerSelector) {
   });
 }
 
-// Load more products on "Load More" button click
+// Initialize load more functionality
 export function initLoadMoreButton() {
   const loadMoreButton = document.querySelector(".load-more a");
-  loadMoreButton?.addEventListener("click", (event) => {
-    event.preventDefault();
-    currentPage++;
-    loadProducts(currentPage);
+  loadMoreButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    currentPage += 1;
+    loadProducts(currentFilter, currentPage, true); // Load next page with isLoadMore = true and retain the filter
   });
 }
