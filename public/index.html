@@ -14,119 +14,7 @@
   <body>
     <div id="root" class="scroll-smooth focus:scroll-auto">
       <div class="mx-auto font-poppins min-h-dvh">
-        <div
-          class="overlay fixed top-0 bottom-0 right-0 left-0 bg-[rgba(0,0,0,0.5)] z-[999] mp-transition-5 mp-invisible cursor-test"
-        ></div>
-        <!-- end overlay -->
-        <div
-          class="z-[9999] justify-between mobile-menu mp-mobile-menu-invisible fixed top-0 left-0 bottom-0 min-w-[400px] md:min-w-[330px] bg-white ml-0 px-5 pt-8 pb-5 text-primary overflow-y-auto mp-transition-5"
-        >
-          <nav class="w-full flex flex-col h-full">
-            <div
-              class="flex flex-row w-full py-4 focus-within:border-b focus-within:border-primary mp-transition-5 mb-[30px]"
-            >
-              <input
-                type="search"
-                class="border-0 outline-0 w-full"
-                id="searchInput"
-                placeholder="Search"
-                aria-label="Search"
-                aria-describedby="search-addon"
-              />
-              <span class="input-group-text border-0 text-lg" id="search-addon">
-                <i class="fas fa-search"></i>
-              </span>
-            </div>
-            <!-- end search mobile -->
-
-            <ul class="font-semibold">
-              <li class="mp-mobile-menu-item">
-                <a href="" class="mp-mobile-menu-item-a">
-                  <span>HOME</span>
-                  <i class="fa-solid fa-caret-right opacity-50"></i>
-                </a>
-              </li>
-              <li class="mp-mobile-menu-item">
-                <a href="" class="mp-mobile-menu-item-a">
-                  <span> SHOP </span>
-                  <i class="fa-solid fa-caret-right opacity-50"></i
-                ></a>
-                <ul class="mp-mobile-sub-menu">
-                  <li class="mp-mobile-sub-menu-item">
-                    <a href="#">Category</a>
-                  </li>
-                  <li class="mp-mobile-sub-menu-item">
-                    <a href="#">Category</a>
-                  </li>
-                  <li class="mp-mobile-sub-menu-item">
-                    <a href="#">Category</a>
-                  </li>
-                  <li class="mp-mobile-sub-menu-item">
-                    <a href="#">Category</a>
-                  </li>
-                  <li class="mp-mobile-sub-menu-item">
-                    <a href="#">Category</a>
-                  </li>
-                  <li class="mp-mobile-sub-menu-item">
-                    <a href="#">Category</a>
-                  </li>
-                  <li class="mp-mobile-sub-menu-item">
-                    <a href="#">Category</a>
-                  </li>
-                  <li class="mp-mobile-sub-menu-item">
-                    <a href="#">Category</a>
-                  </li>
-                  <li class="mp-mobile-sub-menu-item">
-                    <a href="#">Category</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="mp-mobile-menu-item">
-                <a href="" class="mp-mobile-menu-item-a">
-                  <span> FEATURES </span>
-                  <i class="fa-solid fa-caret-right opacity-50"></i
-                ></a>
-              </li>
-              <li class="mp-mobile-menu-item">
-                <a href="" class="mp-mobile-menu-item-a">
-                  <span> PAGES </span>
-                  <i class="fa-solid fa-caret-right opacity-50"></i
-                ></a>
-              </li>
-              <li class="mp-mobile-menu-item">
-                <a href="" class="mp-mobile-menu-item-a">
-                  <span> BLOG </span>
-                  <i class="fa-solid fa-caret-right opacity-50"></i
-                ></a>
-              </li>
-            </ul>
-            <!-- end item mobile -->
-
-            <ul class="font-semibold items-end mt-auto">
-              <li class="mp-mobile-menu-item">
-                <a href="" class="flex flex-row items-center">
-                  <div class="flex flex-row items-center">
-                    <i class="fa-regular fa-heart text-xl mr-2"></i>
-                    <span> WHIST LIST </span>
-                  </div>
-                  <span
-                    class="ml-auto text-sm bg-primary text-white px-2 rounded-full"
-                    >0</span
-                  >
-                </a>
-              </li>
-              <li class="mp-mobile-menu-item">
-                <a href="">
-                  <i class="fa-regular fa-user text-xl mr-2"></i>
-                  <span> USER</span>
-                </a>
-              </li>
-            </ul>
-            <!-- end whist list & user -->
-          </nav>
-        </div>
-        <!-- end mobile menu -->
-
+        <div id="mobileMenu"></div>
         <div
           class="to-top p-2 flex justify-center items-center text-xl w-5 fixed bottom-12 right-5 border-b-0 border-transparent hover:border-primary hover:border-b-[6px] transition-ease-in-out mp-transition-3 cursor-pointer"
         >
@@ -263,18 +151,22 @@
                 class="flex flex-row justify-center gap-[50px] items-center text-gray-500"
               >
                 <li class="mp-hot-sale-text mp-hot-sale-text-active">
-                  <a href="">Best Sellers</a>
+                  <a href="" id="best-sellers-link">Best Sellers</a>
                 </li>
-                <li class="mp-hot-sale-text"><a href="">New Products</a></li>
-                <li class="mp-hot-sale-text"><a href="">Sale Products</a></li>
+                <li class="mp-hot-sale-text">
+                  <a href="" id="new-products-link">New Products</a>
+                </li>
+                <li class="mp-hot-sale-text">
+                  <a href="" id="sale-link">Sale Products</a>
+                </li>
               </ul>
             </nav>
             <div
-              class="hot-sale-product grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 gap-5"
+              class="hot-sale-product grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 gap-[30px]"
             ></div>
             <div class="load-more mp-button-container">
               <a
-                href="#"
+                href="./category.html"
                 class="bg-primary font-semibold text-sm text-white px-4 py-5 min-w-[200px] text-center cursor-pointer hover:bg-[#FF6962] transition-ease-in-out mp-transition-3"
                 >Load More</a
               >
@@ -288,12 +180,12 @@
               class="object-cover min-h-[250px] max-h-[650px] w-full"
             />
             <div
-              class="content absolute inset-0 px-[100px] flex flex-row items-center justify-center"
+              class="content absolute inset-0 xl:px-[100px] px-[20px] flex flex-row items-center justify-center"
             >
               <div
-                class="wpb-container font-light w-1/2 ml-auto flex flex-col justify-between items-center gap-9"
+                class="wpb-container font-light lg:w-1/2 w-full ml-auto flex flex-col justify-between items-center gap-9"
               >
-                <h4 class="text-[40px]">Deal Of The Day</h4>
+                <h4 class="lg:text-[40px] text-[20px]">Deal Of The Day</h4>
                 <div
                   class="timers flex flex-row justify-center items-center gap-[60px]"
                 >
@@ -316,7 +208,7 @@
                 </div>
                 <div class="shop-now mp-button-container">
                   <a
-                    href="#"
+                    href="./category.html"
                     class="bg-primary font-semibold text-sm text-white px-4 py-5 min-w-[200px] text-center cursor-pointer hover:bg-[#FF6962] transition-ease-in-out mp-transition-3"
                     >Shop Now</a
                   >

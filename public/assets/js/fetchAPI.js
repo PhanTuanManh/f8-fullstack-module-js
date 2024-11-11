@@ -71,18 +71,27 @@ export const getAllCategories = async () => {
   }
 };
 
-export const getRandomProducts = async () => {
-  try {
-    const response = await fetch(`${API_URL}`);
-    const products = await response.json();
+export const get10BestSellersProducts = async () => {
+  const response = await fetch(`${API_URL}`); // Replace with actual endpoint
+  const products = await response.json();
 
-    // Shuffle the array and get the first 10 items
-    const randomProducts = products
-      .sort(() => Math.random() - 0.5) // Shuffle array
-      .slice(0, 10); // Get first 10 products after shuffling
+  // Filter and return the first 10 products with "new: true"
+  return products.filter((product) => product.sell >= 99).slice(0, 10);
+};
 
-    return randomProducts;
-  } catch (error) {
-    console.error("Error fetching random products:", error);
-  }
+export const get10NewProducts = async () => {
+  const response = await fetch(`${API_URL}`); // Replace with actual endpoint
+  const products = await response.json();
+
+  // Filter and return the first 10 products with "new: true"
+  return products.filter((product) => product.new === true).slice(0, 10);
+};
+
+export const get10DiscountedProducts = async () => {
+  const products = await getAllProducts(); // Assuming getAllProducts fetches all products
+
+  // Filter products with discountPercentage > 10 and return the first 10
+  return products
+    .filter((product) => product.discountPercentage > 10)
+    .slice(0, 10);
 };
