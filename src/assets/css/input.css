@@ -89,3 +89,7 @@
 .mp-mobile-sub-menu-item {
   @apply py-2 text-gray-500 text-[14px];
 }
+
+.mp-detail-share-link {
+  @apply flex flex-row gap-[10px] justify-center items-center hover:text-primary cursor-pointer;
+}

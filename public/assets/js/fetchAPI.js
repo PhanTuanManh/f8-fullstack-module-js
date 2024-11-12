@@ -11,14 +11,18 @@ export const getAllProducts = async () => {
   }
 };
 
-// Lấy sản phẩm theo ID
+// Fetch product by ID
 export const getProductById = async (id) => {
   try {
-    const response = await fetch(`${API_URL}");/${id}`);
+    const response = await fetch(`${API_URL}/${id}`); // Correct URL format
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`); // Error handling for 404
+    }
     const data = await response.json();
     return data;
   } catch (error) {
     console.error(`Error fetching product with id ${id}:`, error);
+    throw error;
   }
 };
 

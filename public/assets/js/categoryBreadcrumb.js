@@ -28,8 +28,8 @@ function initCategoryBreadcrumb() {
   // Add event listener for next button
   const nextButton = document.getElementById("next-button");
   if (nextButton) {
-    backButton.addEventListener("click", () => {
-      window.history.next(); // Navigate to the previous page
+    nextButton.addEventListener("click", () => {
+      window.history.next();
     });
   }
 }
