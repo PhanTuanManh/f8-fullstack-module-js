@@ -1,60 +1,108 @@
-let allProducts = []; // Store all products once fetched
-let currentPage = 1; // Track current page
-const pageSize = 10; // Number of products per page
+// loadProducts.js
+let allProducts = [];
+let currentPage = 1;
+const pageSize = 10;
 let currentFilter = "all-products";
-let currentSortOrder = "asc"; // Default sort order
+let currentSortOrder = "asc";
+let selectedCategory = "";
 
-async function fetchAllProducts() {
+// Fetches products only once and stores in `allProducts`
+function fetchAllProducts() {
   if (allProducts.length === 0) {
-    const response = await fetch("http://localhost:5000/products");
-    allProducts = await response.json();
+    return fetch("http://localhost:5000/products")
+      .then((response) => response.json())
+      .then((data) => {
+        allProducts = data;
+        return allProducts;
+      });
   }
-  return allProducts;
+  return Promise.resolve(allProducts);
 }
 
-export async function loadProducts(
+// Function to load products based on category, filter, and sort order
+export function loadProducts(
   filterType = "all-products",
   page = 1,
   isLoadMore = false,
   sortOrder = "asc"
 ) {
-  const products = await fetchAllProducts();
-  currentPage = page;
-  currentFilter = filterType;
-  currentSortOrder = sortOrder;
+  const urlParams = new URLSearchParams(window.location.search);
+  selectedCategory = urlParams.get("category");
 
-  let filteredProducts;
-  switch (filterType) {
-    case "best-sellers":
-      filteredProducts = products.filter((product) => product.sell > 99);
-      break;
-    case "new-products":
-      filteredProducts = products.filter((product) => product.new === true);
-      break;
-    case "sale-products":
-      filteredProducts = products.filter(
-        (product) => product.discountPercentage >= 10
+  fetchAllProducts().then((products) => {
+    currentPage = page;
+    currentFilter = filterType;
+    currentSortOrder = sortOrder;
+
+    // Filter products by selected category
+    let filteredProducts = products;
+    if (selectedCategory) {
+      filteredProducts = filteredProducts.filter(
+        (product) => product.category === selectedCategory
       );
-      break;
-    default:
-      filteredProducts = products;
-  }
+    }
 
-  filteredProducts = filteredProducts.sort((a, b) =>
-    sortOrder === "asc" ? a.price - b.price : b.price - a.price
-  );
+    // Apply additional filters
+    switch (filterType) {
+      case "best-sellers":
+        filteredProducts = filteredProducts.filter(
+          (product) => product.sell > 99
+        );
+        break;
+      case "new-products":
+        filteredProducts = filteredProducts.filter(
+          (product) => product.new === true
+        );
+        break;
+      case "sale-products":
+        filteredProducts = filteredProducts.filter(
+          (product) => product.discountPercentage >= 10
+        );
+        break;
+    }
 
-  document.querySelector(
-    ".product-count"
-  ).textContent = `${filteredProducts.length} products`;
+    // Sort products by price
+    filteredProducts = filteredProducts.sort((a, b) =>
+      sortOrder === "asc" ? a.price - b.price : b.price - a.price
+    );
 
-  const startIndex = (currentPage - 1) * pageSize;
-  const paginatedProducts = filteredProducts.slice(
-    startIndex,
-    startIndex + pageSize
-  );
+    // Update product count display
+    document.querySelector(
+      ".product-count"
+    ).textContent = `${filteredProducts.length} products`;
 
-  renderProductList(paginatedProducts, isLoadMore);
+    // Paginate results
+    const startIndex = (currentPage - 1) * pageSize;
+    const paginatedProducts = filteredProducts.slice(
+      startIndex,
+      startIndex + pageSize
+    );
+
+    // Render the paginated product list
+    renderProductList(paginatedProducts, isLoadMore);
+  });
+}
+
+// Initializes the load more button
+export function initLoadMoreButton() {
+  document.querySelector(".load-more a").addEventListener("click", (e) => {
+    e.preventDefault();
+    currentPage += 1;
+    loadProducts(currentFilter, currentPage, true, currentSortOrder);
+  });
+}
+
+// Set up sorting functionality
+export function setupSorting() {
+  document.querySelector(".low-to-hight").addEventListener("click", () => {
+    currentSortOrder = "asc";
+    loadProducts(currentFilter, 1, false, currentSortOrder);
+  });
+
+  document.querySelector(".hight-to-low").addEventListener("click", () => {
+    currentSortOrder = "desc";
+    loadProducts(currentFilter, 1, false, currentSortOrder);
+  });
 }
 
 function renderProductList(products, isLoadMore) {
@@ -108,11 +156,30 @@ function renderProductList(products, isLoadMore) {
   });
 }
 
-export function initLoadMoreButton() {
-  const loadMoreButton = document.querySelector(".load-more a");
-  loadMoreButton.addEventListener("click", (e) => {
+export function setupFilterButtons() {
+  document
+    .getElementById("all-products-link")
+    .addEventListener("click", (e) => {
+      e.preventDefault();
+      loadProducts("all-products", 1, false, currentSortOrder);
+    });
+
+  document
+    .getElementById("best-sellers-link")
+    .addEventListener("click", (e) => {
+      e.preventDefault();
+      loadProducts("best-sellers", 1, false, currentSortOrder);
+    });
+
+  document
+    .getElementById("new-products-link")
+    .addEventListener("click", (e) => {
+      e.preventDefault();
+      loadProducts("new-products", 1, false, currentSortOrder);
+    });
+
+  document.getElementById("sale-link").addEventListener("click", (e) => {
     e.preventDefault();
-    currentPage += 1;
-    loadProducts(currentFilter, currentPage, true, currentSortOrder);
+    loadProducts("sale-products", 1, false, currentSortOrder);
   });
 }

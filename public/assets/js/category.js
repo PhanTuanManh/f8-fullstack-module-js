@@ -5,8 +5,14 @@ import Header from "../../components/header.js";
 import Footer from "../../components/footer.js";
 import MobileMenu from "../../components/mobileMenu.js";
 import { initSlider } from "./slider.js";
+import "./categoryBreadcrumb.js";
 import { initMenuToggle } from "./menuToggle.js";
-import { loadProducts, initLoadMoreButton } from "./loadProducts.js";
+import {
+  loadProducts,
+  initLoadMoreButton,
+  setupSorting,
+  setupFilterButtons,
+} from "./loadProducts.js";
 import {
   get10BestSellersProducts,
   get10NewProducts,
@@ -32,8 +38,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     initMenuToggle();
 
     initEventListeners();
-
-    loadProducts("all-products", 1);
+    setupFilterButtons();
+    setupSorting();
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get("category") || "all-products";
+    loadProducts(category);
     initLoadMoreButton();
   } catch (error) {
     console.error("Error loading components:", error);
@@ -77,52 +86,3 @@ function initEventListeners() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  let currentFilter = "all-products";
-  let sortOrder = "asc"; // Default sorting order
-
-  loadProducts(currentFilter, 1, false, sortOrder);
-
-  initLoadMoreButton();
-
-  document
-    .getElementById("all-products-link")
-    ?.addEventListener("click", (e) => {
-      e.preventDefault();
-      currentFilter = "all-products";
-      loadProducts(currentFilter, 1, false, sortOrder);
-    });
-
-  document
-    .getElementById("best-sellers-link")
-    ?.addEventListener("click", (e) => {
-      e.preventDefault();
-      currentFilter = "best-sellers";
-      loadProducts(currentFilter, 1, false, sortOrder);
-    });
-
-  document
-    .getElementById("new-products-link")
-    ?.addEventListener("click", (e) => {
-      e.preventDefault();
-      currentFilter = "new-products";
-      loadProducts(currentFilter, 1, false, sortOrder);
-    });
-
-  document.getElementById("sale-link")?.addEventListener("click", (e) => {
-    e.preventDefault();
-    currentFilter = "sale-products";
-    loadProducts(currentFilter, 1, false, sortOrder);
-  });
-
-  document.querySelector(".low-to-hight")?.addEventListener("click", () => {
-    sortOrder = "asc";
-    loadProducts(currentFilter, 1, false, sortOrder);
-  });
-
-  document.querySelector(".hight-to-low")?.addEventListener("click", () => {
-    sortOrder = "desc";
-    loadProducts(currentFilter, 1, false, sortOrder);
-  });
-});
