@@ -66,7 +66,7 @@
             >
               <nav>
                 <ul
-                  class="flex flex-row justify-center gap-[50px] items-center text-gray-500"
+                  class="flex-row justify-center hidden xl:flex gap-[50px] items-center text-gray-500"
                 >
                   <li class="mp-hot-sale-text mp-hot-sale-text-active">
                     <a href="" id="all-products-link">All Products</a>
@@ -83,11 +83,11 @@
                 </ul>
               </nav>
               <div
-                class="tools flex flex-row justify-center gap-[50px] items-center text-gray-500"
+                class="tools flex flex-row justify-center xl:gap-[50px] gap-[20px] items-center text-gray-500"
               >
-                <span class="product-count text-xs">61 products</span>
+                <span class="product-count text-xs ml-auto">61 products</span>
                 <div
-                  class="sort-by flex flex-row justify-center gap-[50px] items-center text-gray-500 text-xs"
+                  class="sort-by flex flex-row justify-center xl:gap-[50px] gap-[20px] items-center text-gray-500 text-xs"
                 >
                   <div class="low-to-hight hover:text-primary cursor-pointer">
                     <i class="fa-solid fa-arrow-up mr-2"></i>
@@ -98,9 +98,44 @@
                     <span>Hight to low</span>
                   </div>
                 </div>
-                <div class="filter">
+                <div class="filter cursor-pointer hover:text-primary relative">
                   <i class="fa-solid fa-filter"></i>
-                  Filter
+                  <span> Filter</span>
+                  <input type="checkbox" name="filter" id="filter" />
+                  <div
+                    class="filter-submenu absolute shadow-gray-500 top-0 right-0 min-w-[390px] p-[30px] bg-white z-[1600]"
+                  >
+                    <div class="flex flex-row justify-between items-center">
+                      <h4 class="text-xl">Filter</h4>
+                      <i class="fa-solid fa-xmark"></i>
+                    </div>
+                    <div class="category-container">
+                      <h5>Category</h5>
+                      <ul class="category-list">
+                        <li><a href="">Beauty</a></li>
+                      </ul>
+                    </div>
+                    <div class="price-range-container">
+                      <h5>Price</h5>
+                      <div
+                        class="slider"
+                        data-value-0="#first"
+                        data-value-1="#second"
+                        data-range="#third"
+                      >
+                        <div class="flex flex-row justify-between">
+                          <div class="min-price text-sm">Min Price</div>
+                          <div class="max-price text-sm">Max Price</div>
+                        </div>
+                        <div
+                          class="price-value-container flex flex-row justify-between"
+                        >
+                          <div class="price-value">200</div>
+                          <div class="price-value">1000</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

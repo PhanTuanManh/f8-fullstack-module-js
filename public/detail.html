@@ -3,100 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sober | Detail</title>
+    <title>Sober | Details : Product</title>
     <link rel="icon" href="./assets/icon/Logo-icon-black.png" sizes="16x16" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     />
+    <link rel="stylesheet" href="./assets/css/hiddenspin.css" />
     <link rel="stylesheet" href="./assets/css/output.css" />
   </head>
   <body>
     <div id="root" class="scroll-smooth focus:scroll-auto">
       <div class="mx-auto font-poppins min-h-dvh">
-        <div
-          class="overlay fixed top-0 bottom-0 right-0 left-0 bg-[rgba(0,0,0,0.5)] z-[999] mp-transition-5 mp-invisible cursor-test"
-        ></div>
-        <!-- end overlay -->
-        <div
-          class="z-[9999] justify-between mobile-menu mp-mobile-menu-invisible fixed top-0 left-0 bottom-0 min-w-[400px] md:min-w-[330px] bg-white ml-0 px-5 pt-8 pb-5 text-primary overscroll-y-auto mp-transition-5"
-        >
-          <nav class="w-full flex flex-col h-full">
-            <div
-              class="flex flex-row w-full py-4 focus-within:border-b focus-within:border-primary mp-transition-5 mb-[30px]"
-            >
-              <input
-                type="search"
-                class="border-0 outline-0 w-full"
-                id="searchInput"
-                placeholder="Search"
-                aria-label="Search"
-                aria-describedby="search-addon"
-              />
-              <span class="input-group-text border-0 text-lg" id="search-addon">
-                <i class="fas fa-search"></i>
-              </span>
-            </div>
-            <!-- end search mobile -->
-
-            <ul class="font-semibold">
-              <li class="mp-mobile-menu-item">
-                <a href="" class="mp-mobile-menu-item-a">
-                  <span>HOME</span>
-                  <i class="fa-solid fa-caret-right opacity-50"></i>
-                </a>
-              </li>
-              <li class="mp-mobile-menu-item">
-                <a href="" class="mp-mobile-menu-item-a">
-                  <span> SHOP </span>
-                  <i class="fa-solid fa-caret-right opacity-50"></i
-                ></a>
-              </li>
-              <li class="mp-mobile-menu-item">
-                <a href="" class="mp-mobile-menu-item-a">
-                  <span> FEATURES </span>
-                  <i class="fa-solid fa-caret-right opacity-50"></i
-                ></a>
-              </li>
-              <li class="mp-mobile-menu-item">
-                <a href="" class="mp-mobile-menu-item-a">
-                  <span> PAGES </span>
-                  <i class="fa-solid fa-caret-right opacity-50"></i
-                ></a>
-              </li>
-              <li class="mp-mobile-menu-item">
-                <a href="" class="mp-mobile-menu-item-a">
-                  <span> BLOG </span>
-                  <i class="fa-solid fa-caret-right opacity-50"></i
-                ></a>
-              </li>
-            </ul>
-            <!-- end item mobile -->
-
-            <ul class="font-semibold items-end mt-auto">
-              <li class="mp-mobile-menu-item">
-                <a href="" class="flex flex-row items-center">
-                  <div class="flex flex-row items-center">
-                    <i class="fa-regular fa-heart text-xl mr-2"></i>
-                    <span> WHIST LIST </span>
-                  </div>
-                  <span
-                    class="ml-auto text-sm bg-primary text-white px-2 rounded-full"
-                    >0</span
-                  >
-                </a>
-              </li>
-              <li class="mp-mobile-menu-item">
-                <a href="">
-                  <i class="fa-regular fa-user text-xl mr-2"></i>
-                  <span> USER</span>
-                </a>
-              </li>
-            </ul>
-            <!-- end whist list & user -->
-          </nav>
-        </div>
-        <!-- end mobile menu -->
+        <div id="mobileMenu"></div>
 
         <div
           class="to-top p-2 flex justify-center items-center text-xl w-5 fixed bottom-12 right-5 border-b-0 border-transparent hover:border-primary hover:border-b-[6px] transition-ease-in-out mp-transition-3 cursor-pointer"
@@ -108,7 +27,166 @@
         <!-- End Header -->
         <!-- Main -->
         <main>
-          <section class="container mx-auto min-h-dvh"></section>
+          <section
+            class="pageheader mp-fullpage-section-pad py-[20px] min-h-[70px] mx-auto flex flex-row justify-between mt-[100px] items-center relative overflow-hidden border-t border-gray-200"
+          >
+            <div class="path flex flex-row text-xs font-semibold text-gray-500">
+              <a href="index.html" class="hover:text-primary mp-transition-3"
+                >Home</a
+              >
+
+              <span class="mx-2">/</span>
+              <a
+                id="breadcrumb-category"
+                href=""
+                class="hover:text-primary mp-transition-3 capitalize"
+              >
+                Category
+              </a>
+              <span class="mx-2">/</span>
+              <a
+                id="breadcrumb-product"
+                href="detail.html"
+                class="text-primary mp-transition-3 capitalize"
+              >
+                Product
+              </a>
+            </div>
+            <div class="nav flex flex-row gap-6">
+              <i
+                class="fa-solid fa-arrow-left-long cursor-pointer"
+                id="back-button"
+              ></i>
+              <i
+                class="fa-solid fa-arrow-right-long cursor-pointer"
+                id="next-button"
+              ></i>
+            </div>
+          </section>
+          <section
+            class="product mp-fullpage-section-pad flex lg:flex-row flex-col xl:gap-[20px] lg:gap-[10px] gap-[20px] w-full"
+          >
+            <div
+              class="list-img max-w-[80px] flex lg:flex-col flex-row gap-[10px] lg:order-1 order-2"
+            >
+              <img
+                src="https://demo.uix.store/sober/wp-content/uploads/sites/2/2016/07/2-13.jpg"
+                alt=""
+                class="w-full object-cover"
+              />
+              <img
+                src="https://demo.uix.store/sober/wp-content/uploads/sites/2/2016/07/1-13.jpg"
+                alt=""
+                class="w-full object-cover"
+              />
+              <img
+                src="https://demo.uix.store/sober/wp-content/uploads/sites/2/2016/07/3-13.jpg"
+                alt=""
+                class="w-full object-cover"
+              />
+            </div>
+            <div
+              id="detail-img"
+              class="relative detail-img 3xl:min-w-[770px] 2xl:min-w-[560px] xl:min-w-[460px] lg:min-w-[390px] 3xl:max-w-[770px] xl:max-w-[460px] 2xl:max-w-[560px] lg:max-w-[390px] w-full lg:order2 order-1"
+            >
+              <div
+                class="hot absolute top-5 left-0 text-white bg-[#FF6962] font-semibold px-3.5 text-[14px] shadow shadow-xl"
+              ></div>
+              <div
+                class="new absolute top-[50px] left-0 text-white bg-[#6cff62] font-semibold px-3.5 text-[14px] shadow shadow-xl"
+              ></div>
+              <img
+                src="https://demo.uix.store/sober/wp-content/uploads/sites/2/2016/07/2-13.jpg"
+                alt=""
+                class="w-full object-cover"
+              />
+            </div>
+            <div
+              class="detail-info xl:pt-[40px] 3xl:px-[140px] xl:px-[60px] px-[20px] text-center flex flex-col items-center order-3"
+            >
+              <h2 class="product-name xl:text-3xl text-2xl product-title">
+                Product Name
+              </h2>
+              <p
+                class="product-description text-gray-500 mt-[32px] xl:text-md lg:text-sm max-w-[80%]"
+              >
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
+                quod, magnam officiis natus, officia iusto, cumque quae
+              </p>
+              <div class="rating mt-[12px]">
+                <span class="product-rating">4.5</span>
+                <i class="fa-solid fa-star text-yellow-400"></i>
+              </div>
+              <div class="review mt-[12px]">
+                <span class="lg:text-sm xl:text-md"
+                  >(<span class="product-reviews"></span> customer
+                  reviews)</span
+                >
+              </div>
+              <h3 class="product-price my-[50px] xl:text-3xl text-2xl">
+                $100.00
+              </h3>
+              <div
+                class="action w-full flex flex-row gap-[10px] h-[60px] lg:text-sm justify-center items-center flex-wrap mb-[40px]"
+              >
+                <div class="quantity p-5 border border-gray-200">
+                  <i class="fa-solid fa-minus"></i>
+                  <input
+                    type="number"
+                    name="quantity"
+                    id="quantity"
+                    value="1"
+                    min="1"
+                    inputmode="numeric"
+                    class="border-0 outline-0 text-center sm:max-w-[50px] max-w-[30px] appearance-none no-spin"
+                  />
+                  <i class="fa-solid fa-plus"></i>
+                </div>
+                <div
+                  class="add-to-card py-5 sm:px-8 px-4 bg-primary text-white flex flex-row gap-[10px] justify-center items-center"
+                >
+                  <i class="fa-solid fa-cart-shopping"></i>
+                  <span class="block">Add to cart</span>
+                  <i class="fa-solid fa-check"></i>
+                </div>
+
+                <div
+                  class="whist-list flex text-xl justify-center items-center cursor-pointer sm:block hidden"
+                >
+                  <i class="fa-regular fa-heart"></i>
+                </div>
+              </div>
+              <button
+                class="buy-now border w-[80%] bg-primary text-white p-5 flex justify-center items-center hover:bg-red-500 hover:text-white transition-ease-in-out mp-transition-3"
+              >
+                Buy now
+              </button>
+              <div
+                class="category-detail py-[35px] mt-[60px] border-y border-gray-200 w-full"
+              >
+                <h5 class="text-[13px] uppercase text-gray-500">
+                  Category:
+                  <span class="font-semibold text-primary">Beauty</span>
+                </h5>
+              </div>
+              <div
+                class="share-ond flex flex-row gap-[20px] justify-center items-center py-[35px] text-[13px] text-gray-500"
+              >
+                <div class="facebook mp-detail-share-link">
+                  <i class="fa-brands fa-facebook-f"></i>
+                  <span>Facebook</span>
+                </div>
+                <div class="twitter mp-detail-share-link">
+                  <i class="fa-brands fa-twitter"></i>
+                  <span>Twitter</span>
+                </div>
+                <div class="instagram mp-detail-share-link">
+                  <i class="fa-brands fa-instagram"></i>
+                  <span>Instagram</span>
+                </div>
+              </div>
+            </div>
+          </section>
         </main>
         <!-- End Main -->
         <!--
@@ -126,5 +204,6 @@
       </div>
     </div>
     <script type="module" src="./assets/js/detail.js"></script>
+    <!-- <script type="module" src="./assets/js/productBreadcrumb.js"></script> -->
   </body>
 </html>

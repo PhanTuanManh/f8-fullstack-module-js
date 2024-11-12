@@ -53,7 +53,7 @@ export default async function Header() {
             </div>
           </li>
           <li class="mp-top-menu-item">
-            <a href="!#" class="mp-top-menu-item-a-active">FEATURES</a>
+            <a href="../detail.html" class="mp-top-menu-item-a-active">FEATURES</a>
           </li>
           <li class="mp-top-menu-item">
             <a href="!#" class="mp-top-menu-item-a-active">PAGES</a>
