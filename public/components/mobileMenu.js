@@ -23,9 +23,12 @@ export default async function MobileMenu() {
           </div>
           <ul class="font-semibold">
             <li class="mp-mobile-menu-item"><a href="" class="mp-mobile-menu-item-a"><span>HOME</span><i class="fa-solid fa-caret-right opacity-50"></i></a></li>
-            <li class="mp-mobile-menu-item">
-              <a href="" class="mp-mobile-menu-item-a"><span>SHOP</span><i class="fa-solid fa-caret-right opacity-50"></i></a>
-              <ul class="mp-mobile-sub-menu d-none">
+            <li class="mp-mobile-menu-item group">
+              <a href="" class="mp-mobile-menu-item-a">
+              <span>SHOP</span>
+              <i class="fa-solid fa-caret-right opacity-50 group-hover:rotate-90 mp-transition-5"></i>
+              </a>
+              <ul class="mp-mobile-sub-menu hidden group-hover:block">
                 ${categoryListItems}
               </ul>
             </li>
