@@ -9,6 +9,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     />
+    <link rel="stylesheet" href="./assets/css/hiddenspin.css" />
     <link rel="stylesheet" href="./assets/css/output.css" />
   </head>
   <body>
@@ -102,10 +103,10 @@
                   <i class="fa-solid fa-filter hover:text-primary"></i>
                   <span class="hover:text-primary"> Filter</span>
                   <div
-                    class="filter-submenu max-h-[500px] overflow-y-auto mp-invisible translate-x-[50%] group-hover:visible group-hover:opacity-100 group-hover:translate-x-0 shadow shadow-md mp-transition-5 absolute shadow-gray-500 top-0 right-0 min-w-[390px] p-[30px] bg-white z-[1600]"
+                    class="filter-submenu max-h-[660px] mp-invisible translate-x-[50%] overflow-y-auto group-hover:visible group-hover:opacity-100 group-hover:translate-x-0 shadow shadow-md mp-transition-5 absolute shadow-gray-500 pb-[30px] pr-[30px] pl-[30px] top-0 right-0 min-w-[390px] bg-white z-[1600]"
                   >
                     <div
-                      class="flex flex-row justify-between items-center mb-[30px]"
+                      class="flex flex-row justify-between items-center border-b border-gray-300 pt-[25px] pb-[30px] min-h-[60px] z-10 bg-white sticky top-0 left-0 right-0"
                     >
                       <h4 class="text-xl">Filter</h4>
                     </div>
@@ -270,9 +271,11 @@
                     <div class="price-range-container">
                       <h5 class="mb-[12px] pt-[25px]">Price</h5>
                       <div class="slider">
-                        <div class="flex flex-row justify-between">
+                        <div
+                          class="price-range flex justify-between text-[13px]"
+                        >
+                          <span>Min Price</span>
                           <span class="min-price-display text-sm">$0</span>
-                          <span class="max-price-display text-sm">$1000</span>
                         </div>
                         <input
                           type="range"
@@ -280,15 +283,21 @@
                           min="0"
                           max="1000"
                           value="0"
-                          class="slider-input"
+                          class="slider-input w-full h-1 mb-6 bg-gray-200 rounded-lg appearance-none cursor-pointer range-sm"
                         />
+                        <div
+                          class="price-range flex justify-between text-[13px]"
+                        >
+                          <span>Max Price</span>
+                          <span class="max-price-display text-sm">$1000</span>
+                        </div>
                         <input
                           type="range"
                           id="max-price"
                           min="0"
                           max="1000"
                           value="1000"
-                          class="slider-input"
+                          class="slider-input w-full h-1 mb-6 bg-gray-200 rounded-lg appearance-none cursor-pointer range-sm"
                         />
                       </div>
                     </div>

@@ -4,6 +4,7 @@
 import Header from "../../components/header.js";
 import Footer from "../../components/footer.js";
 import MobileMenu from "../../components/mobileMenu.js";
+
 import "./categoryBreadcrumb.js";
 import { initMenuToggle } from "./menuToggle.js";
 import {
@@ -11,6 +12,7 @@ import {
   loadProducts,
   setupSorting,
   initLoadMoreButton,
+  setupFilterButtonslink,
 } from "./loadProducts.js";
 
 // Load header and footer content, then initialize required components
@@ -29,6 +31,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     initMenuToggle();
     initEventListeners();
+    setupFilterButtonslink();
 
     // Initialize the filter
     populateFilters(); // Load filter options dynamically

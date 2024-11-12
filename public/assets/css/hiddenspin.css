@@ -7,3 +7,13 @@
 .no-spin {
   -moz-appearance: textfield; /* Firefox */
 }
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Loại bỏ kiểu mặc định */
+  appearance: none;
+  width: 14px; /* Kích thước của nút tròn */
+  height: 14px; /* Kích thước của nút tròn */
+  background: #23232c; /* Màu nền của nút tròn */
+  cursor: pointer; /* Con trỏ chuột khi di chuyển lên nút tròn */
+  border-radius: 50%; /* Làm tròn nút tròn */
+}
