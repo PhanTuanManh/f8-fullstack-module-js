@@ -1,38 +1,20 @@
-// initCategoryBreadcrumb.js
-
-// Function to get URL parameter
+// categoryBreadcrumb.js
 function getCategoryFromUrl() {
   const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get("category") || "Shop"; // Default to "Category" if no parameter
+  return urlParams.get("category") || "Shop";
 }
 
-// Function to initialize and update the breadcrumb
 function initCategoryBreadcrumb() {
-  const category = getCategoryFromUrl(); // Retrieve the category from the URL
+  const category = getCategoryFromUrl();
   const breadcrumbElement = document.getElementById("breadcrumb-category");
 
-  // Update breadcrumb text and href link
   breadcrumbElement.textContent = category;
   breadcrumbElement.href = `category.html?category=${encodeURIComponent(
     category
   )}`;
 
-  // Add event listener for back button
-  const backButton = document.getElementById("back-button");
-  if (backButton) {
-    backButton.addEventListener("click", () => {
-      window.history.back(); // Navigate to the previous page
-    });
-  }
-
-  // Add event listener for next button
-  const nextButton = document.getElementById("next-button");
-  if (nextButton) {
-    nextButton.addEventListener("click", () => {
-      window.history.next();
-    });
-  }
+  document.getElementById("back-button")?.addEventListener("click", () => {
+    window.history.back();
+  });
 }
-
-// Initialize breadcrumb on page load
 document.addEventListener("DOMContentLoaded", initCategoryBreadcrumb);
