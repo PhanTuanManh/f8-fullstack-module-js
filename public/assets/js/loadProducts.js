@@ -267,3 +267,52 @@ export function populateFilters() {
     setupFilterButtons();
   });
 }
+
+export function setupFilterButtonslink() {
+  document
+    .getElementById("all-products-link")
+    .addEventListener("click", (e) => {
+      e.preventDefault();
+      loadProducts("all-products", 1, false, currentSortOrder);
+    });
+
+  document
+    .getElementById("best-sellers-link")
+    .addEventListener("click", (e) => {
+      e.preventDefault();
+      loadProducts("best-sellers", 1, false, currentSortOrder);
+    });
+
+  document
+    .getElementById("new-products-link")
+    .addEventListener("click", (e) => {
+      e.preventDefault();
+      loadProducts("new-products", 1, false, currentSortOrder);
+    });
+
+  document.getElementById("sale-link").addEventListener("click", (e) => {
+    e.preventDefault();
+    loadProducts("sale-products", 1, false, currentSortOrder);
+  });
+}
+
+function setupPriceRangeSlider() {
+  const minPriceInput = document.getElementById("min-price");
+  const maxPriceInput = document.getElementById("max-price");
+  const minPriceDisplay = document.querySelector(".min-price-display");
+  const maxPriceDisplay = document.querySelector(".max-price-display");
+
+  minPriceInput.addEventListener("input", (e) => {
+    priceRange.min = parseInt(e.target.value, 10);
+    minPriceDisplay.textContent = `$${priceRange.min}`;
+    loadProducts(currentFilter, 1, false, currentSortOrder);
+  });
+
+  maxPriceInput.addEventListener("input", (e) => {
+    priceRange.max = parseInt(e.target.value, 10);
+    maxPriceDisplay.textContent = `$${priceRange.max}`;
+    loadProducts(currentFilter, 1, false, currentSortOrder);
+  });
+}
+
+setupPriceRangeSlider();
