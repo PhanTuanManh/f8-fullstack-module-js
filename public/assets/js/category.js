@@ -4,21 +4,14 @@
 import Header from "../../components/header.js";
 import Footer from "../../components/footer.js";
 import MobileMenu from "../../components/mobileMenu.js";
-import { initSlider } from "./slider.js";
 import "./categoryBreadcrumb.js";
 import { initMenuToggle } from "./menuToggle.js";
 import {
+  populateFilters,
   loadProducts,
-  initLoadMoreButton,
   setupSorting,
-  setupFilterButtons,
+  initLoadMoreButton,
 } from "./loadProducts.js";
-import {
-  get10BestSellersProducts,
-  get10NewProducts,
-  get10DiscountedProducts,
-  getAllProducts,
-} from "./fetchAPI.js";
 
 // Load header and footer content, then initialize required components
 document.addEventListener("DOMContentLoaded", async () => {
@@ -34,12 +27,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.querySelector("#footer").innerHTML = footerContent;
     document.querySelector("#mobileMenu").innerHTML = mobileNav;
 
-    // Initialize menu toggle after header loads
     initMenuToggle();
-
     initEventListeners();
-    setupFilterButtons();
+
+    // Initialize the filter
+    populateFilters(); // Load filter options dynamically
+
     setupSorting();
+
     const urlParams = new URLSearchParams(window.location.search);
     const category = urlParams.get("category") || "all-products";
     loadProducts(category);

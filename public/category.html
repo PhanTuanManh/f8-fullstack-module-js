@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./assets/css/output.css" />
   </head>
   <body>
-    <div id="root" class="scroll-smooth focus:scroll-auto">
+    <div id="root" class="scroll-smooth focus:scroll-auto overflow-hidden">
       <div class="mx-auto font-poppins min-h-dvh">
         <div id="mobileMenu"></div>
 
@@ -98,41 +98,198 @@
                     <span>Hight to low</span>
                   </div>
                 </div>
-                <div class="filter cursor-pointer hover:text-primary relative">
-                  <i class="fa-solid fa-filter"></i>
-                  <span> Filter</span>
-                  <input type="checkbox" name="filter" id="filter" />
+                <div class="filter cursor-pointer group relative">
+                  <i class="fa-solid fa-filter hover:text-primary"></i>
+                  <span class="hover:text-primary"> Filter</span>
                   <div
-                    class="filter-submenu hidden absolute shadow-gray-500 top-0 right-0 min-w-[390px] p-[30px] bg-white z-[1600]"
+                    class="filter-submenu max-h-[500px] overflow-y-auto mp-invisible translate-x-[50%] group-hover:visible group-hover:opacity-100 group-hover:translate-x-0 shadow shadow-md mp-transition-5 absolute shadow-gray-500 top-0 right-0 min-w-[390px] p-[30px] bg-white z-[1600]"
                   >
-                    <div class="flex flex-row justify-between items-center">
+                    <div
+                      class="flex flex-row justify-between items-center mb-[30px]"
+                    >
                       <h4 class="text-xl">Filter</h4>
-                      <i class="fa-solid fa-xmark"></i>
                     </div>
-                    <div class="category-container">
-                      <h5>Category</h5>
-                      <ul class="category-list">
-                        <li><a href="">Beauty</a></li>
+
+                    <div class="tag-container">
+                      <h5 class="mb-[12px] pt-[25px]">Tag</h5>
+                      <ul class="tag-list">
+                        <li class="flex items-center py-2">
+                          <label
+                            class="flex items-center cursor-pointer relative"
+                            for="tag1"
+                          >
+                            <input
+                              type="checkbox"
+                              checked
+                              class="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-slate-800 checked:border-slate-800"
+                              id="tag1"
+                            />
+                            <span
+                              class="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-3.5 w-3.5"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                                stroke="currentColor"
+                                stroke-width="1"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                  clip-rule="evenodd"
+                                ></path>
+                              </svg>
+                            </span>
+                          </label>
+                          <label
+                            class="cursor-pointer ml-2 text-slate-600 text-sm"
+                            for="tag1"
+                          >
+                            Tag 1
+                          </label>
+                        </li>
+                        <li class="flex items-center py-2">
+                          <label
+                            class="flex items-center cursor-pointer relative"
+                            for="tag2"
+                          >
+                            <input
+                              type="checkbox"
+                              checked
+                              class="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-slate-800 checked:border-slate-800"
+                              id="tag2"
+                            />
+                            <span
+                              class="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-3.5 w-3.5"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                                stroke="currentColor"
+                                stroke-width="1"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                  clip-rule="evenodd"
+                                ></path>
+                              </svg>
+                            </span>
+                          </label>
+                          <label
+                            class="cursor-pointer ml-2 text-slate-600 text-sm"
+                            for="tag2"
+                          >
+                            Tag 2
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="brand-container">
+                      <h5 class="mb-[12px] pt-[25px]">Brand</h5>
+                      <ul class="brand-list">
+                        <li class="flex items-center py-2">
+                          <label
+                            class="flex items-center cursor-pointer relative"
+                            for="brand1"
+                          >
+                            <input type="checkbox" checked class="peer h-5 w-5
+                            cursor-pointer transition-all appearance-none
+                            rounded shadow hover:shadow-md border
+                            border-slate-300 checked:bg-slate-800
+                            checked:border-slate-800" id="brand1"" />
+                            <span
+                              class="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-3.5 w-3.5"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                                stroke="currentColor"
+                                stroke-width="1"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                  clip-rule="evenodd"
+                                ></path>
+                              </svg>
+                            </span>
+                          </label>
+                          <label
+                            class="cursor-pointer ml-2 text-slate-600 text-sm"
+                            for="brand1"
+                          >
+                            Brand 1
+                          </label>
+                        </li>
+                        <li class="flex items-center py-2">
+                          <label
+                            class="flex items-center cursor-pointer relative"
+                            for="brand2"
+                          >
+                            <input
+                              type="checkbox"
+                              checked
+                              class="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-slate-800 checked:border-slate-800"
+                              id="brand2"
+                            />
+                            <span
+                              class="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-3.5 w-3.5"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                                stroke="currentColor"
+                                stroke-width="1"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                  clip-rule="evenodd"
+                                ></path>
+                              </svg>
+                            </span>
+                          </label>
+                          <label
+                            class="cursor-pointer ml-2 text-slate-600 text-sm"
+                            for="brand2"
+                          >
+                            Brand 2
+                          </label>
+                        </li>
                       </ul>
                     </div>
                     <div class="price-range-container">
-                      <h5>Price</h5>
-                      <div
-                        class="slider"
-                        data-value-0="#first"
-                        data-value-1="#second"
-                        data-range="#third"
-                      >
+                      <h5 class="mb-[12px] pt-[25px]">Price</h5>
+                      <div class="slider">
                         <div class="flex flex-row justify-between">
-                          <div class="min-price text-sm">Min Price</div>
-                          <div class="max-price text-sm">Max Price</div>
+                          <span class="min-price-display text-sm">$0</span>
+                          <span class="max-price-display text-sm">$1000</span>
                         </div>
-                        <div
-                          class="price-value-container flex flex-row justify-between"
-                        >
-                          <div class="price-value">200</div>
-                          <div class="price-value">1000</div>
-                        </div>
+                        <input
+                          type="range"
+                          id="min-price"
+                          min="0"
+                          max="1000"
+                          value="0"
+                          class="slider-input"
+                        />
+                        <input
+                          type="range"
+                          id="max-price"
+                          min="0"
+                          max="1000"
+                          value="1000"
+                          class="slider-input"
+                        />
                       </div>
                     </div>
                   </div>
