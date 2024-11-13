@@ -16,8 +16,8 @@ export default async function MobileMenu() {
       <div class="z-[9999] justify-between mobile-menu mp-mobile-menu-invisible fixed top-0 left-0 bottom-0 min-w-[400px] md:min-w-[330px] bg-white ml-0 px-5 pt-8 pb-5 text-primary overflow-y-auto mp-transition-5">
         <nav class="w-full flex flex-col h-full">
           <div class="flex flex-row w-full py-4 focus-within:border-b focus-within:border-primary mp-transition-5 mb-[30px]">
-            <input type="search" class="border-0 outline-0 w-full" id="searchInput" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-            <span class="input-group-text border-0 text-lg" id="search-addon">
+            <input type="search" class="border-0 outline-0 w-full" id="mobileSearchInput" placeholder="Search" aria-label="Search" aria-describedby="search-addon-mobile" />
+            <span class="input-group-text border-0 text-lg" id="search-addon-mobile">
               <i class="fas fa-search"></i>
             </span>
           </div>
@@ -49,3 +49,22 @@ export default async function MobileMenu() {
       </div>
     `;
 }
+
+(async () => {
+  const mobileMenuHTML = await MobileMenu();
+  document.body.insertAdjacentHTML("afterbegin", mobileMenuHTML);
+
+  const mobileSearchInput = document.getElementById("mobileSearchInput");
+  if (mobileSearchInput) {
+    mobileSearchInput.addEventListener("keypress", (event) => {
+      if (event.key === "Enter") {
+        const searchQuery = event.target.value.trim();
+        if (searchQuery) {
+          window.location.href = `category.html?search=${encodeURIComponent(
+            searchQuery
+          )}`;
+        }
+      }
+    });
+  }
+})();

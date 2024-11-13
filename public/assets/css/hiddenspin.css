@@ -17,3 +17,8 @@ input[type="range"]::-webkit-slider-thumb {
   cursor: pointer; /* Con trỏ chuột khi di chuyển lên nút tròn */
   border-radius: 50%; /* Làm tròn nút tròn */
 }
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}

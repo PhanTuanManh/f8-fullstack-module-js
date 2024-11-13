@@ -1,9 +1,9 @@
 // mainBase.js
 // Author: https://github.com/PhanTuanManh/
 
-import Header from "../../components/header.js";
 import Footer from "../../components/footer.js";
 import MobileMenu from "../../components/mobileMenu.js";
+import Header, { setupHeaderSearch } from "../../components/header.js";
 
 import "./categoryBreadcrumb.js";
 import { initMenuToggle } from "./menuToggle.js";
@@ -15,10 +15,11 @@ import {
   setupFilterButtonslink,
 } from "./loadProducts.js";
 
-// Load header and footer content, then initialize required components
+const urlParams = new URLSearchParams(window.location.search);
+const searchQuery = urlParams.get("search");
+let currentSortOrder = "asc";
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    // Load header and footer content
     const [headerContent, footerContent, mobileNav] = await Promise.all([
       Header(),
       Footer(),
@@ -29,18 +30,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.querySelector("#footer").innerHTML = footerContent;
     document.querySelector("#mobileMenu").innerHTML = mobileNav;
 
+    setupHeaderSearch();
     initMenuToggle();
     initEventListeners();
     setupFilterButtonslink();
-
-    // Initialize the filter
-    populateFilters(); // Load filter options dynamically
-
+    populateFilters();
     setupSorting();
 
-    const urlParams = new URLSearchParams(window.location.search);
     const category = urlParams.get("category") || "all-products";
-    loadProducts(category);
+
+    // If a search query exists, use it to load products
+    loadProducts(category, 1, false, currentSortOrder, searchQuery);
     initLoadMoreButton();
   } catch (error) {
     console.error("Error loading components:", error);
