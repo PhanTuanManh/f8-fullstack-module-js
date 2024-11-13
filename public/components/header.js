@@ -1,5 +1,5 @@
 import { getAllCategories } from "../assets/js/fetchAPI.js"; // Adjust this path
-
+import { loadProducts } from "../assets/js/loadProducts.js";
 export default async function Header() {
   // Fetch categories
   const categories = await getAllCategories();
@@ -63,7 +63,7 @@ export default async function Header() {
           </li>
         </ul>
         <!-- Logo -->
-        <a href="#!" aria-label="Trang chủ" class="basis-2/6">
+        <a href="../index.html" aria-label="Trang chủ" class="basis-2/6">
           <div class="logo-wrapper flex flex-row items-center justify-center">
             <img loading="lazy" src="../assets/icon/logo.svg" alt="" class="" />
           </div>
@@ -107,4 +107,21 @@ export default async function Header() {
         </div>
       </nav>
     </header>`;
+}
+export function setupHeaderSearch() {
+  const searchInput = document.getElementById("searchInput");
+  if (searchInput) {
+    searchInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        const searchQuery = e.target.value.trim();
+        if (searchQuery) {
+          window.location.href = `category.html?search=${encodeURIComponent(
+            searchQuery
+          )}`;
+        }
+      }
+    });
+  } else {
+    console.error("Search input not found in the header");
+  }
 }
