@@ -96,7 +96,7 @@ export function initSlider() {
                 </h2>
                 <span
                   class="slide-content mp-transition-7 text-[15px] pb-0.5 cursor-pointer relative after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-1/2 after:h-[2px] after:bg-primary hover:after:w-full after:transition-all after:duration-500">
-                  ${slide.content}
+                  <a href="../../category.html" class="text-[15px]">${slide.content}</a>
                 </span>
               </div>
             </div>

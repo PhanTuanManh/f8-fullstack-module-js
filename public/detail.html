@@ -129,8 +129,8 @@
               <div
                 class="action w-full flex flex-row gap-[10px] h-[60px] lg:text-sm justify-center items-center flex-wrap mb-[40px]"
               >
-                <div class="quantity p-5 border border-gray-200">
-                  <i class="fa-solid fa-minus"></i>
+                <div class="quantity p-5 border border-gray-200 select-none">
+                  <i class="fa-solid fa-minus cursor-pointer"></i>
                   <input
                     type="number"
                     name="quantity"
@@ -140,10 +140,10 @@
                     inputmode="numeric"
                     class="border-0 outline-0 text-center sm:max-w-[50px] max-w-[30px] appearance-none no-spin"
                   />
-                  <i class="fa-solid fa-plus"></i>
+                  <i class="fa-solid fa-plus cursor-pointer"></i>
                 </div>
                 <div
-                  class="add-to-card py-5 sm:px-8 px-4 bg-primary text-white flex flex-row gap-[10px] justify-center items-center"
+                  class="add-to-card py-5 sm:px-8 px-4 mp-transition-3 cursor-pointer hover:bg-red-500 bg-primary text-white flex flex-row gap-[10px] justify-center items-center"
                 >
                   <i class="fa-solid fa-cart-shopping"></i>
                   <span class="block">Add to cart</span>

@@ -27,7 +27,7 @@
 }
 
 .mp-button-container {
-  @apply flex flex-col items-center justify-center lg:mt-[30px] mt-0;
+  @apply flex flex-col items-center justify-center lg:mt-[30px] mt-[20px];
 }
 
 .mp-top-menu-item {
