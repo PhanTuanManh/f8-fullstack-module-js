@@ -13,22 +13,18 @@ import {
   get10DiscountedProducts,
 } from "./fetchAPI.js";
 
-// Load header and footer content, then initialize required components
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    // Load header and footer content
     const [headerContent, footerContent, mobileNav] = await Promise.all([
       Header(),
       Footer(),
       MobileMenu(),
     ]);
 
-    // Insert header and footer into the DOM
     document.querySelector("#header").innerHTML = headerContent;
     document.querySelector("#footer").innerHTML = footerContent;
     document.querySelector("#mobileMenu").innerHTML = mobileNav;
 
-    // Initialize menu toggle after header loads
     initMenuToggle();
     initSlider();
     initEventListeners();
@@ -40,7 +36,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-// Define additional event listeners for scroll and button interactions
 function initEventListeners() {
   let lastScrollY = window.scrollY;
   const header = document.querySelector(".header");
@@ -68,7 +63,6 @@ function initEventListeners() {
 
   window.addEventListener("scroll", handleScroll);
 
-  // Toggle to-top button visibility
   window.addEventListener("scroll", () => {
     if (toTopButton) {
       toTopButton.classList.toggle("hidden", window.scrollY <= 200);
@@ -91,7 +85,7 @@ function renderProductList(products) {
   const productList = document.querySelector(".hot-sale-product");
   if (!productList) return;
 
-  productList.innerHTML = ""; // Clear existing products
+  productList.innerHTML = "";
   products.forEach((product) => {
     const productCard = document.createElement("div");
     productCard.classList.add(
@@ -136,7 +130,6 @@ function renderProductList(products) {
 
 // Set up event listeners for product category links
 function setupProductLinks() {
-  // Handle Best Sellers link click
   document
     .getElementById("best-sellers-link")
     ?.addEventListener("click", (event) => {
@@ -144,7 +137,6 @@ function setupProductLinks() {
       load10BestProducts(); // Reload random products
     });
 
-  // Handle New Products link click
   document
     .getElementById("new-products-link")
     ?.addEventListener("click", (event) => {
@@ -155,7 +147,6 @@ function setupProductLinks() {
       });
     });
 
-  // Handle Sale link click
   document.getElementById("sale-link")?.addEventListener("click", (event) => {
     event.preventDefault();
     get10DiscountedProducts().then((products) => renderProductList(products));

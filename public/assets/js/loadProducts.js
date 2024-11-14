@@ -227,6 +227,7 @@ function renderProductList(products, isLoadMore) {
       "3xl:grid-cols-5",
       "gap-[30px]"
     );
+    productList.classList.remove("flex", "flex-col", "items-center");
 
     products.forEach((product) => {
       const productCard = document.createElement("div");
@@ -236,7 +237,6 @@ function renderProductList(products, isLoadMore) {
         "cursor-pointer",
         "group"
       );
-      productList.classList.remove("flex", "flex-col", "items-center");
 
       const productImage =
         product.images?.[0] ?? "./assets/images/default-product.jpg";

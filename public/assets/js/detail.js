@@ -1,4 +1,3 @@
-// mainBase.js
 // Author: https://github.com/PhanTuanManh/
 
 import Header from "../../components/header.js";
@@ -7,10 +6,9 @@ import MobileMenu from "../../components/mobileMenu.js";
 import { initMenuToggle } from "./menuToggle.js";
 import { getProductById } from "./fetchAPI.js";
 import "./quantityControl.js";
-// Load header and footer content, then initialize required components
+
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    // Load header and footer content
     const [headerContent, footerContent, mobileNav] = await Promise.all([
       Header(),
       Footer(),
@@ -21,7 +19,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.querySelector("#footer").innerHTML = footerContent;
     document.querySelector("#mobileMenu").innerHTML = mobileNav;
 
-    // Initialize menu toggle after header loads
     initMenuToggle();
     initEventListeners();
   } catch (error) {
@@ -71,10 +68,9 @@ async function loadProductDetails() {
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get("id");
 
-  if (!productId) return; // Exit if no product ID is found
+  if (!productId) return; // Exit if no product ID is provided
 
   try {
-    // Fetch product details by ID
     const product = await getProductById(productId);
     renderProductDetails(product);
   } catch (error) {
@@ -86,7 +82,6 @@ async function loadProductDetails() {
 function renderProductDetails(product) {
   if (!product) return;
 
-  // Populate the breadcrumb with category and product name
   document
     .querySelector("#breadcrumb-category")
     .setAttribute("href", `category.html?category=${product.category}`);
@@ -97,7 +92,7 @@ function renderProductDetails(product) {
   product.hot ? (document.querySelector(".hot").innerHTML = "Hot") : "";
 
   product.new ? (document.querySelector(".new").innerHTML = "New") : "";
-  // Set product details
+
   document.querySelector(".product-title").innerText = product.title;
   document.querySelector(".product-description").innerText =
     product.description;
@@ -108,15 +103,12 @@ function renderProductDetails(product) {
   document.querySelector(".product-price").innerText = `$${product.price}`;
   document.querySelector(".category-detail span").innerText = product.category;
 
-  // Set main image and thumbnails
   const detailImg = document.querySelector("#detail-img img");
   const imgListContainer = document.querySelector(".list-img");
 
   if (product.images && product.images.length > 0) {
-    // Default to the first image as the main detail image
     detailImg.src = product.images[0];
 
-    // Populate thumbnails
     imgListContainer.innerHTML = product.images
       .map(
         (imgUrl, index) =>
@@ -124,7 +116,6 @@ function renderProductDetails(product) {
       )
       .join("");
 
-    // Add click event for each thumbnail to update the main image
     imgListContainer.querySelectorAll(".thumbnail-img").forEach((thumbnail) => {
       thumbnail.addEventListener("click", (e) => {
         detailImg.src = e.target.src;
@@ -135,18 +126,16 @@ function renderProductDetails(product) {
   const backButton = document.getElementById("back-button");
   if (backButton) {
     backButton.addEventListener("click", () => {
-      window.history.back(); // Navigate to the previous page
+      window.history.back();
     });
   }
 
-  // Add event listener for next button
   const nextButton = document.getElementById("next-button");
   if (nextButton) {
     nextButton.addEventListener("click", () => {
-      window.history.next(); // Navigate to the previous page
+      window.history.forward();
     });
   }
 }
 
-// Initialize product detail loading when DOM is ready
 document.addEventListener("DOMContentLoaded", loadProductDetails);
