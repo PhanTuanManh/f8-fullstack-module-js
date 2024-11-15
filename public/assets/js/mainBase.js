@@ -167,7 +167,11 @@ window.addEventListener("scroll", function () {
 
   if (window.scrollY > 400) {
     document.querySelectorAll(".mp-hot-sale-text ").forEach((div, i) => {
-      div.classList.add("motion-preset-focus", "motion-duration-700");
+      div.classList.add(
+        "motion-preset-focus",
+        "motion-duration-700",
+        "motion-delay-[500ms]"
+      );
     });
   }
 });
