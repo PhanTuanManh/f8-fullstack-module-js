@@ -129,12 +129,10 @@ export function initSlider() {
     updateDots();
   }
 
-  // Initialize slides, dots, and start auto sliding
   createSlides();
   createDots();
   slideInterval = setInterval(autoSlide, slideDuration);
 
-  // Add navigation buttons
   const prev = document.querySelector(".prev");
   const next = document.querySelector(".next");
   prev.addEventListener("click", () => changeSlide(-1));

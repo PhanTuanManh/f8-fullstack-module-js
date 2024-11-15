@@ -19,7 +19,7 @@ export default async function Header() {
   return `
     <header
       id="header"
-      class="header z-[50] fixed top-0 left-0 right-0 md:px-10 px-5 xl:py-5 py-8 bg-white/0 text-primary uppercase transition-all trasition-ease-in-out duration-500 hover:bg-white/100"
+      class=" header z-[50] fixed top-0 left-0 right-0 md:px-10 px-5 xl:py-5 py-8 bg-white/0 text-primary uppercase transition-all trasition-ease-in-out duration-500 hover:bg-white/100"
     >
       <nav class="flex flex-row justify-between items-center">
         <!-- bar menu -->
@@ -29,7 +29,7 @@ export default async function Header() {
 
         <!-- menu -->
         <ul
-          class="hidden xl:flex text-sm xl:flex-row xl:justify-start xl:gap-6 2xl:gap-8 py-4 basis-2/6"
+          class="motion-preset-rebound-down hidden xl:flex text-sm xl:flex-row xl:justify-start xl:gap-6 2xl:gap-8 py-4 basis-2/6"
         >
           <li class="mp-top-menu-item">
             <a href="../index.html" class="mp-top-menu-item-a-active">HOME</a>
@@ -53,24 +53,24 @@ export default async function Header() {
             </div>
           </li>
           <li class="mp-top-menu-item">
-            <a href="../detail.html" class="mp-top-menu-item-a-active">FEATURES</a>
+            <a href="#" class="mp-top-menu-item-a-active">FEATURES</a>
           </li>
           <li class="mp-top-menu-item">
-            <a href="!#" class="mp-top-menu-item-a-active">PAGES</a>
+            <a href="#" class="mp-top-menu-item-a-active">PAGES</a>
           </li>
           <li class="mp-top-menu-item">
-            <a href="!#" class="mp-top-menu-item-a-active">BLOG</a>
+            <a href="#" class="mp-top-menu-item-a-active">BLOG</a>
           </li>
         </ul>
         <!-- Logo -->
-        <a href="../index.html" aria-label="Trang chủ" class="basis-2/6">
+        <a href="../index.html" aria-label="Trang chủ" class="motion-preset-rebound-down basis-2/6">
           <div class="logo-wrapper flex flex-row items-center justify-center">
             <img loading="lazy" src="../assets/icon/logo.svg" alt="" class="" />
           </div>
         </a>
         <!-- Search & Cart & User -->
         <div
-          class="flex flex-row gap-4 justify-end items-center basis-2/6 pr-2.5"
+          class="motion-preset-rebound-down flex flex-row gap-4 justify-end items-center basis-2/6 pr-2.5"
         >
           <!-- Search -->
           <div class="flex flex-row p-4 hidden xl:block">
@@ -90,11 +90,11 @@ export default async function Header() {
           <!-- Cart & User & Whist List -->
           <div class="text-xl flex flex-row justify-between items-center gap-6">
             <!-- User -->
-            <a href="!#"><i class="fa-regular fa-user hidden xl:block"></i></a>
+            <a href="#"><i class="fa-regular fa-user hidden xl:block"></i></a>
             <!-- Whist List -->
-            <a href="!#"><i class="fa-regular fa-heart"></i></a>
+            <a href="#"><i class="fa-regular fa-heart"></i></a>
             <!-- Cart -->
-            <a href="!#">
+            <a href="#">
               <i class="fa-solid fa-bag-shopping relative">
                 <div
                   class="absolute px-2 -top-4 -right-5 bg-gray-400 text-white rounded-full text-xs font-extralight border border-white flex justify-center items-center font-roboto"

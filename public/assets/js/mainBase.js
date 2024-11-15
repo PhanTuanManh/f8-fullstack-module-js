@@ -13,26 +13,23 @@ import {
   get10DiscountedProducts,
 } from "./fetchAPI.js";
 
-// Load header and footer content, then initialize required components
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    // Load header and footer content
     const [headerContent, footerContent, mobileNav] = await Promise.all([
       Header(),
       Footer(),
       MobileMenu(),
     ]);
 
-    // Insert header and footer into the DOM
     document.querySelector("#header").innerHTML = headerContent;
     document.querySelector("#footer").innerHTML = footerContent;
     document.querySelector("#mobileMenu").innerHTML = mobileNav;
 
-    // Initialize menu toggle after header loads
     initMenuToggle();
     initSlider();
     initEventListeners();
     initCountdown();
+    setupFilterButtons();
     load10BestProducts();
     setupProductLinks();
   } catch (error) {
@@ -40,7 +37,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-// Define additional event listeners for scroll and button interactions
 function initEventListeners() {
   let lastScrollY = window.scrollY;
   const header = document.querySelector(".header");
@@ -68,30 +64,26 @@ function initEventListeners() {
 
   window.addEventListener("scroll", handleScroll);
 
-  // Toggle to-top button visibility
   window.addEventListener("scroll", () => {
     if (toTopButton) {
       toTopButton.classList.toggle("hidden", window.scrollY <= 200);
     }
   });
 
-  // Smooth scroll to top
   toTopButton?.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 }
 
-// Load random products for the product list
 function load10BestProducts() {
   get10BestSellersProducts().then((products) => renderProductList(products));
 }
 
-// Render products to the specified product list container
 function renderProductList(products) {
   const productList = document.querySelector(".hot-sale-product");
   if (!productList) return;
 
-  productList.innerHTML = ""; // Clear existing products
+  productList.innerHTML = "";
   products.forEach((product) => {
     const productCard = document.createElement("div");
     productCard.classList.add(
@@ -134,17 +126,14 @@ function renderProductList(products) {
   });
 }
 
-// Set up event listeners for product category links
 function setupProductLinks() {
-  // Handle Best Sellers link click
   document
     .getElementById("best-sellers-link")
     ?.addEventListener("click", (event) => {
       event.preventDefault();
-      load10BestProducts(); // Reload random products
+      load10BestProducts();
     });
 
-  // Handle New Products link click
   document
     .getElementById("new-products-link")
     ?.addEventListener("click", (event) => {
@@ -155,9 +144,46 @@ function setupProductLinks() {
       });
     });
 
-  // Handle Sale link click
   document.getElementById("sale-link")?.addEventListener("click", (event) => {
     event.preventDefault();
     get10DiscountedProducts().then((products) => renderProductList(products));
+  });
+}
+
+let hasScrolled = false;
+
+window.addEventListener("scroll", function () {
+  if (window.scrollY > 0 && !hasScrolled) {
+    document.querySelectorAll(".new-item").forEach((div, i) => {
+      div.classList.add(
+        "motion",
+        "motion-preset-slide-left",
+        `motion-delay-[${300 * i}ms]`
+      );
+    });
+
+    hasScrolled = true;
+  }
+
+  if (window.scrollY > 400) {
+    document.querySelectorAll(".mp-hot-sale-text ").forEach((div, i) => {
+      div.classList.add("motion-preset-focus", "motion-duration-700");
+    });
+  }
+});
+
+function setupFilterButtons() {
+  const filterLinks = document.querySelectorAll(".mp-hot-sale-text");
+
+  filterLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      filterLinks.forEach((item) => {
+        item.classList.remove("mp-hot-sale-text-active");
+      });
+
+      e.currentTarget.classList.add("mp-hot-sale-text-active");
+    });
   });
 }

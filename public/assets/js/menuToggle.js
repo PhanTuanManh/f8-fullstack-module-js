@@ -1,6 +1,5 @@
 // menuToggle.js
 
-// Function to toggle visibility
 function toggleMenuVisibility(isVisible, mobileMenu, overlay) {
   if (mobileMenu && overlay) {
     mobileMenu.classList.toggle("mp-mobile-menu-visible", isVisible);
@@ -10,14 +9,11 @@ function toggleMenuVisibility(isVisible, mobileMenu, overlay) {
   }
 }
 
-// Initialize menu toggle
 export function initMenuToggle() {
-  // Wait for DOM to load
   const barIcon = document.querySelector(".bar-icon");
   const mobileMenu = document.querySelector(".mobile-menu");
   const overlay = document.querySelector(".overlay");
 
-  // Check if all elements exist
   if (barIcon && mobileMenu && overlay) {
     barIcon.addEventListener("click", () => {
       const isVisible = !mobileMenu.classList.contains(

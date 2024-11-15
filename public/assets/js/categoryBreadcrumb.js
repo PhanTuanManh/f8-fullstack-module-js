@@ -16,5 +16,8 @@ function initCategoryBreadcrumb() {
   document.getElementById("back-button")?.addEventListener("click", () => {
     window.history.back();
   });
+  document.getElementById("next-button")?.addEventListener("click", () => {
+    window.history.forward();
+  });
 }
 document.addEventListener("DOMContentLoaded", initCategoryBreadcrumb);

@@ -1,4 +1,3 @@
-// mainBase.js
 // Author: https://github.com/PhanTuanManh/
 
 import Footer from "../../components/footer.js";
@@ -39,7 +38,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const category = urlParams.get("category") || "all-products";
 
-    // If a search query exists, use it to load products
     loadProducts(category, 1, false, currentSortOrder, searchQuery);
     initLoadMoreButton();
   } catch (error) {

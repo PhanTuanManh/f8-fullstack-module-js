@@ -8,7 +8,8 @@
   "devDependencies": {
     "concurrently": "^9.1.0",
     "npm-run-all": "^4.1.5",
-    "tailwindcss": "^3.4.14"
+    "tailwindcss": "^3.4.14",
+    "tailwindcss-motion": "^0.4.1-beta"
   },
   "name": "f8-fullstack-project-js",
   "version": "1.0.0",
