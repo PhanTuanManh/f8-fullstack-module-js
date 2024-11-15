@@ -2280,6 +2280,10 @@ video {
   --motion-delay: 500ms;
 }
 
+.motion-delay-\[200ms\]{
+  --motion-delay: 200ms;
+}
+
 .mp-transition-10{
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);

@@ -170,7 +170,7 @@ window.addEventListener("scroll", function () {
       div.classList.add(
         "motion-preset-focus",
         "motion-duration-700",
-        "motion-delay-[500ms]"
+        "motion-delay-[200ms]"
       );
     });
   }
