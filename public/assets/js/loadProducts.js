@@ -252,7 +252,10 @@ function renderProductList(products, isLoadMore) {
         : "";
 
       productCard.innerHTML = `
+       <div class="item-image relative">
         <img loading="lazy" src="${productImage}" alt="${product.title}" class="w-full object-cover hover:scale-105 mp-transition-5" />
+        <div class= "absolute top-0 bg-primary"> </div>
+       </div>
         <div class="item-text flex flex-col justify-center text-center mt-[20px] gap-2 mb-[30px]">
           <h5 class="truncate">${product.title}</h5>
           <span>$${product.price}</span>
@@ -335,16 +338,13 @@ export function setupFilterButtonslink() {
     element.addEventListener("click", (e) => {
       e.preventDefault();
 
-      // Remove active class from all links
       filterLinks.forEach((item) => {
         const liElement = document.getElementById(item.id).parentElement;
         liElement.classList.remove("mp-hot-sale-text-active");
       });
 
-      // Add active class to the clicked link's parent <li>
       element.parentElement.classList.add("mp-hot-sale-text-active");
 
-      // Call loadProducts with the specific filter
       loadProducts(link.filter, 1, false, currentSortOrder, currentSearchQuery);
     });
   });

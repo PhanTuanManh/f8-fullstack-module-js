@@ -1,7 +1,7 @@
 // countdown.js
 
 export function initCountdown() {
-  const countdownDate = new Date("2024-11-15T00:00:00").getTime();
+  const countdownDate = new Date("2024-11-17T00:00:00").getTime();
 
   function updateCountdown() {
     const now = new Date().getTime();

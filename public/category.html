@@ -33,10 +33,16 @@
             <img
               src="./assets/images/slide1.jpg"
               alt=""
-              class="absolute inset-0 h-full w-full object-cover z-[-1]"
+              class="motion-preset-blur-right motion-delay-[600ms] absolute inset-0 h-full w-full object-cover z-[-1]"
             />
-            <h3 class="text-7xl letter tracking-widest">Shop</h3>
-            <div class="path flex flex-row text-xs font-semibold text-gray-500">
+            <h3
+              class="motion-preset-slide-left motion-duration-1000 motion-delay-[900ms] text-7xl letter tracking-widest"
+            >
+              Shop
+            </h3>
+            <div
+              class="motion-preset-slide-right motion-duration-1000 motion-delay-[1300ms] text-7xl letter tracking-widest path flex flex-row text-xs font-semibold text-gray-500"
+            >
               <a href="index.html" class="hover:text-primary mp-transition-3"
                 >Home</a
               >
@@ -50,7 +56,9 @@
                 Shop
               </a>
             </div>
-            <div class="nav flex flex-row gap-6">
+            <div
+              class="motion-preset-slide-right motion-duration-1000 motion-delay-[1300ms] nav flex flex-row gap-6"
+            >
               <i
                 class="fa-solid fa-arrow-left-long cursor-pointer"
                 id="back-button"
@@ -67,7 +75,7 @@
             >
               <nav>
                 <ul
-                  class="flex-row justify-center hidden xl:flex gap-[50px] items-center text-gray-500"
+                  class="motion-preset-focus motion-duration-700 motion-delay-[1500ms] flex-row justify-center hidden xl:flex gap-[50px] items-center text-gray-500"
                 >
                   <li class="mp-hot-sale-text mp-hot-sale-text-active">
                     <a href="" id="all-products-link">All Products</a>
@@ -86,9 +94,12 @@
               <div
                 class="tools flex flex-row justify-center xl:gap-[50px] gap-[20px] items-center text-gray-500"
               >
-                <span class="product-count text-xs ml-auto">61 products</span>
+                <span
+                  class="motion-preset-focus motion-duration-700 motion-delay-[1500ms] product-count text-xs ml-auto"
+                  >61 products</span
+                >
                 <div
-                  class="sort-by flex flex-row justify-center xl:gap-[50px] gap-[20px] items-center text-gray-500 text-xs"
+                  class="motion-preset-focus motion-duration-700 motion-delay-[1500ms] sort-by flex flex-row justify-center xl:gap-[50px] gap-[20px] items-center text-gray-500 text-xs"
                 >
                   <div class="low-to-hight hover:text-primary cursor-pointer">
                     <i class="fa-solid fa-arrow-up mr-2"></i>
@@ -100,10 +111,16 @@
                   </div>
                 </div>
                 <div class="filter cursor-pointer group relative">
-                  <i class="fa-solid fa-filter hover:text-primary"></i>
-                  <span class="hover:text-primary"> Filter</span>
+                  <i
+                    class="motion-preset-focus motion-duration-700 motion-delay-[1500ms] fa-solid fa-filter hover:text-primary"
+                  ></i>
+                  <span
+                    class="motion-preset-focus motion-duration-700 motion-delay-[1500ms] hover:text-primary"
+                  >
+                    Filter</span
+                  >
                   <div
-                    class="filter-submenu max-h-[660px] mp-invisible translate-x-[50%] overflow-y-auto group-hover:visible group-hover:opacity-100 group-hover:translate-x-0 shadow shadow-md mp-transition-7 absolute shadow-gray-500 pb-[30px] pr-[30px] pl-[30px] top-0 right-0 min-w-[390px] bg-white z-[1600]"
+                    class="filter-submenu max-h-[660px] mp-invisible translate-x-[50%] overflow-y-auto group-hover:visible group-hover:opacity-100 group-hover:translate-x-0 shadow shadow-md mp-transition-7 absolute shadow-gray-500 pb-[30px] pr-[30px] pl-[30px] top-0 right-0 min-w-[390px] bg-white z-[9900]"
                   >
                     <div
                       class="flex flex-row justify-between items-center border-b border-gray-300 pt-[25px] pb-[30px] min-h-[60px] z-10 bg-white sticky top-0 left-0 right-0"

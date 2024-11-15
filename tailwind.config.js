@@ -1,3 +1,4 @@
+import tailwindcssMotion from "tailwindcss-motion";
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./public/**/*.{html,js}", "./src/components/**/*.{html,js}"],
@@ -41,5 +42,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [tailwindcssMotion],
 };

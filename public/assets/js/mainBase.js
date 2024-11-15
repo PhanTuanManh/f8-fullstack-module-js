@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     initSlider();
     initEventListeners();
     initCountdown();
+    setupFilterButtons();
     load10BestProducts();
     setupProductLinks();
   } catch (error) {
@@ -69,18 +70,15 @@ function initEventListeners() {
     }
   });
 
-  // Smooth scroll to top
   toTopButton?.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 }
 
-// Load random products for the product list
 function load10BestProducts() {
   get10BestSellersProducts().then((products) => renderProductList(products));
 }
 
-// Render products to the specified product list container
 function renderProductList(products) {
   const productList = document.querySelector(".hot-sale-product");
   if (!productList) return;
@@ -128,13 +126,12 @@ function renderProductList(products) {
   });
 }
 
-// Set up event listeners for product category links
 function setupProductLinks() {
   document
     .getElementById("best-sellers-link")
     ?.addEventListener("click", (event) => {
       event.preventDefault();
-      load10BestProducts(); // Reload random products
+      load10BestProducts();
     });
 
   document
@@ -150,5 +147,43 @@ function setupProductLinks() {
   document.getElementById("sale-link")?.addEventListener("click", (event) => {
     event.preventDefault();
     get10DiscountedProducts().then((products) => renderProductList(products));
+  });
+}
+
+let hasScrolled = false;
+
+window.addEventListener("scroll", function () {
+  if (window.scrollY > 0 && !hasScrolled) {
+    document.querySelectorAll(".new-item").forEach((div, i) => {
+      div.classList.add(
+        "motion",
+        "motion-preset-slide-left",
+        `motion-delay-[${300 * i}ms]`
+      );
+    });
+
+    hasScrolled = true;
+  }
+
+  if (window.scrollY > 400) {
+    document.querySelectorAll(".mp-hot-sale-text ").forEach((div, i) => {
+      div.classList.add("motion-preset-focus", "motion-duration-700");
+    });
+  }
+});
+
+function setupFilterButtons() {
+  const filterLinks = document.querySelectorAll(".mp-hot-sale-text");
+
+  filterLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      filterLinks.forEach((item) => {
+        item.classList.remove("mp-hot-sale-text-active");
+      });
+
+      e.currentTarget.classList.add("mp-hot-sale-text-active");
+    });
   });
 }
