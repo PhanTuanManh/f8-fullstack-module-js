@@ -2238,12 +2238,28 @@ video {
   }
 }
 
+.motion-translate-x-in-\[0\%\]{
+  --motion-origin-translate-x: 0%;
+  --motion-translate-in-animation: motion-translate-in calc(var(--motion-translate-duration) * var(--motion-translate-perceptual-duration-multiplier)) var(--motion-translate-timing) var(--motion-translate-delay) both;
+  animation: var(--motion-all-loop-and-enter-animations);
+}
+
+.motion-translate-y-in-\[100\%\]{
+  --motion-origin-translate-y: 100%;
+  --motion-translate-in-animation: motion-translate-in calc(var(--motion-translate-duration) * var(--motion-translate-perceptual-duration-multiplier)) var(--motion-translate-timing) var(--motion-translate-delay) both;
+  animation: var(--motion-all-loop-and-enter-animations);
+}
+
 .motion-duration-1000{
   --motion-duration: 1000ms;
 }
 
 .motion-duration-700{
   --motion-duration: 700ms;
+}
+
+.motion-delay-\[1200ms\]{
+  --motion-delay: 1200ms;
 }
 
 .motion-delay-\[1300ms\]{
@@ -2270,8 +2286,20 @@ video {
   --motion-delay: 900ms;
 }
 
-.motion-delay-\[1200ms\]{
-  --motion-delay: 1200ms;
+.motion-delay-\[1000ms\]{
+  --motion-delay: 1000ms;
+}
+
+.motion-delay-\[100ms\]{
+  --motion-delay: 100ms;
+}
+
+.motion-delay-\[700ms\]{
+  --motion-delay: 700ms;
+}
+
+.motion-delay-\[800ms\]{
+  --motion-delay: 800ms;
 }
 
 .mp-transition-10{
