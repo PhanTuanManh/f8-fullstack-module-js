@@ -816,16 +816,6 @@ video {
   }
 }
 
-.motion-preset-blur-left{
-  --motion-origin-blur: 5px;
-  --motion-origin-translate-x: 5%;
-  --motion-origin-opacity: 0;
-  --motion-opacity-in-animation: motion-opacity-in calc(var(--motion-opacity-duration) * var(--motion-opacity-perceptual-duration-multiplier)) var(--motion-opacity-timing) var(--motion-opacity-delay) both;
-  --motion-filter-in-animation: motion-filter-in calc(var(--motion-filter-duration) * var(--motion-filter-perceptual-duration-multiplier)) var(--motion-filter-timing) var(--motion-filter-delay) both;
-  --motion-translate-in-animation: motion-translate-in calc(var(--motion-translate-duration) * var(--motion-translate-perceptual-duration-multiplier)) var(--motion-translate-timing) var(--motion-translate-delay) both;
-  animation: var(--motion-all-loop-and-enter-animations);
-}
-
 .motion-preset-blur-right{
   --motion-origin-blur: 5px;
   --motion-origin-translate-x: -5%;
@@ -2264,6 +2254,10 @@ video {
   --motion-delay: 1500ms;
 }
 
+.motion-delay-\[200ms\]{
+  --motion-delay: 200ms;
+}
+
 .motion-delay-\[300ms\]{
   --motion-delay: 300ms;
 }
@@ -2276,12 +2270,8 @@ video {
   --motion-delay: 900ms;
 }
 
-.motion-delay-\[500ms\]{
-  --motion-delay: 500ms;
-}
-
-.motion-delay-\[200ms\]{
-  --motion-delay: 200ms;
+.motion-delay-\[1200ms\]{
+  --motion-delay: 1200ms;
 }
 
 .mp-transition-10{
