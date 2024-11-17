@@ -2258,16 +2258,12 @@ video {
   --motion-duration: 700ms;
 }
 
+.motion-delay-\[1000ms\]{
+  --motion-delay: 1000ms;
+}
+
 .motion-delay-\[1200ms\]{
   --motion-delay: 1200ms;
-}
-
-.motion-delay-\[1300ms\]{
-  --motion-delay: 1300ms;
-}
-
-.motion-delay-\[1500ms\]{
-  --motion-delay: 1500ms;
 }
 
 .motion-delay-\[200ms\]{
@@ -2280,18 +2276,6 @@ video {
 
 .motion-delay-\[600ms\]{
   --motion-delay: 600ms;
-}
-
-.motion-delay-\[900ms\]{
-  --motion-delay: 900ms;
-}
-
-.motion-delay-\[1000ms\]{
-  --motion-delay: 1000ms;
-}
-
-.motion-delay-\[100ms\]{
-  --motion-delay: 100ms;
 }
 
 .motion-delay-\[700ms\]{
