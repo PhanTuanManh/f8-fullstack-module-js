@@ -53,13 +53,13 @@ export default async function Header() {
             </div>
           </li>
           <li class="mp-top-menu-item">
-            <a href="#" class="mp-top-menu-item-a-active">FEATURES</a>
+            <a href="../404.html" class="mp-top-menu-item-a-active">FEATURES</a>
           </li>
           <li class="mp-top-menu-item">
-            <a href="#" class="mp-top-menu-item-a-active">PAGES</a>
+            <a href="../404.html" class="mp-top-menu-item-a-active">PAGES</a>
           </li>
           <li class="mp-top-menu-item">
-            <a href="#" class="mp-top-menu-item-a-active">BLOG</a>
+            <a href="../404.html" class="mp-top-menu-item-a-active">BLOG</a>
           </li>
         </ul>
         <!-- Logo -->
@@ -90,11 +90,11 @@ export default async function Header() {
           <!-- Cart & User & Whist List -->
           <div class="text-xl flex flex-row justify-between items-center gap-6">
             <!-- User -->
-            <a href="#"><i class="fa-regular fa-user hidden xl:block"></i></a>
+            <a href="../404.html"><i class="fa-regular fa-user hidden xl:block"></i></a>
             <!-- Whist List -->
-            <a href="#"><i class="fa-regular fa-heart"></i></a>
+            <a href="../404.html"><i class="fa-regular fa-heart"></i></a>
             <!-- Cart -->
-            <a href="#">
+            <a href="../404.html">
               <i class="fa-solid fa-bag-shopping relative">
                 <div
                   class="absolute px-2 -top-4 -right-5 bg-gray-400 text-white rounded-full text-xs font-extralight border border-white flex justify-center items-center font-roboto"
