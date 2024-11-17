@@ -82,7 +82,7 @@ export default async function Header() {
               aria-label="Search"
               aria-describedby="search-addon"
             />
-            <span class="input-group-text border-0" id="search-addon">
+            <span class="input-group-text border-0" id="searchIcon">
               <i class="fas fa-search"></i>
             </span>
           </div>
@@ -110,6 +110,8 @@ export default async function Header() {
 }
 export function setupHeaderSearch() {
   const searchInput = document.getElementById("searchInput");
+  const searchButton = document.getElementById("searchIcon");
+
   if (searchInput) {
     searchInput.addEventListener("keypress", (e) => {
       if (e.key === "Enter") {
@@ -121,6 +123,19 @@ export function setupHeaderSearch() {
         }
       }
     });
+
+    if (searchButton) {
+      searchButton.addEventListener("click", () => {
+        const searchQuery = searchInput.value.trim();
+        if (searchQuery) {
+          window.location.href = `category.html?search=${encodeURIComponent(
+            searchQuery
+          )}`;
+        }
+      });
+    } else {
+      console.error("Search button not found in the header");
+    }
   } else {
     console.error("Search input not found in the header");
   }

@@ -1,7 +1,7 @@
 // mainBase.js
 // Author: https://github.com/PhanTuanManh/
 
-import Header from "../../components/header.js";
+import Header, { setupHeaderSearch } from "../../components/header.js";
 import Footer from "../../components/footer.js";
 import MobileMenu from "../../components/mobileMenu.js";
 import { initSlider } from "./slider.js";
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.querySelector("#header").innerHTML = headerContent;
     document.querySelector("#footer").innerHTML = footerContent;
     document.querySelector("#mobileMenu").innerHTML = mobileNav;
-
+    setupHeaderSearch();
     initMenuToggle();
     initSlider();
     initEventListeners();
